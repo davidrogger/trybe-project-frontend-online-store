@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// teste PR
 class Search extends Component {
   render() {
     return (
