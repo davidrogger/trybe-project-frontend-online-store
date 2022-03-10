@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 class Search extends Component {
   render() {
     return (
-<<<<<<< HEAD
       <div
         data-testid="home-initial-message"
         className="search-container"
@@ -13,13 +12,6 @@ class Search extends Component {
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
       </div>
-=======
-      <p
-        data-testid="home-initial-message"
-      >
-        Digite algum termo de pesquisa ou escolha uma categoria.
-      </p>
->>>>>>> main-group-30
     );
   }
 }
