@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Search from './components/Search';
+import Home from './Pages/Home';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Search />
-      </div>
+      <main>
+        <Home />
+      </main>
     );
   }
 }
