@@ -19,7 +19,15 @@ class InputSearch extends Component {
     this.state = {
       searchInput: '',
       products: [],
+      categorySearched: [],
     };
+  }
+
+  handleCategoryClick = async (id) => {
+    const response = await getProductsFromCategoryAndQuery(id);
+    this.setState({
+      categorySearched: response.results,
+    });
   }
 
   handleChange = ({ target }) => {
@@ -39,11 +47,17 @@ class InputSearch extends Component {
   render() {
     const {
       products,
+      categorySearched,
     } = this.state;
+
+    const displaySearch = products.length === 0;
+    const selectedProducts = displaySearch ? categorySearched : products;
 
     return (
       <div className="home-container">
-        <Category />
+        <Category
+          handleCategoryClick={ this.handleCategoryClick }
+        />
         <div className="side-container">
           <input
             type="text"
@@ -59,7 +73,7 @@ class InputSearch extends Component {
             Pesquisar
           </button>
           <Search
-            products={ products }
+            products={ selectedProducts }
           />
         </div>
       </div>
