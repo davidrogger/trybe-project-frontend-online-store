@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ProductCard from './ProductCard';
 
-// teste PR
 class Search extends Component {
   render() {
     const {
