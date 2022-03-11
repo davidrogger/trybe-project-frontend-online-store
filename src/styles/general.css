@@ -50,9 +50,8 @@
 .product-container ul {
   display: flex;
   flex-wrap: wrap;
-  background-color: red;
 }
 
-.product-item  img{
-  max-width: 30%
+.product-item img {
+  max-width: 30%;
 }
