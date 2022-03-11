@@ -4,7 +4,7 @@ class Category extends Component {
   render() {
     return (
       <div className="category-container">
-        <p>Category</p>
+        <p>Category </p>
       </div>
     );
   }
