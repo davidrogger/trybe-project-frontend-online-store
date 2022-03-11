@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import carshop from '../img/carshop2.png';
 
 class Header extends Component {
@@ -24,6 +25,10 @@ class Header extends Component {
           Pesquisar
         </button>
         <img src={ carshop } alt="img-carshop" />
+        <input type="text" />
+        <Link to="/cart" data-testid="shopping-cart-button">
+          <img src={ carshop } alt="img-carshop" />
+        </Link>
       </header>
     );
   }
