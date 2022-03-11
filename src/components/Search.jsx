@@ -6,7 +6,12 @@ class Search extends Component {
   render() {
     const { products } = this.props;
     const searchDisplay = products.length === 0;
-    const emptySearch = <p>Digite algum termo de pesquisa ou escolha uma categoria.</p>;
+    const emptySearch = (
+      <p
+        data-testid="home-initial-message"
+      >
+        Digite algum termo de pesquisa ou escolha uma categoria.
+      </p>);
 
     const productsFound = (items) => (
       <ul>

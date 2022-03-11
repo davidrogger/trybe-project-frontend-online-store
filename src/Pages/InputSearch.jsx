@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 
 // Componentes
 import Search from '../components/Search';
-import Header from '../components/Header';
 import Category from '../components/Category';
 
 // Paginas
@@ -14,13 +13,21 @@ import '../styles/general.css';
 // Funçôes
 import { getProductsFromCategoryAndQuery } from '../services/api';
 
-class Home extends Component {
+class InputSearch extends Component {
   constructor() {
     super();
     this.state = {
       searchInput: '',
       products: [],
+      categorySearched: [],
     };
+  }
+
+  handleCategoryClick = async (id) => {
+    const response = await getProductsFromCategoryAndQuery(id);
+    this.setState({
+      categorySearched: response.results,
+    });
   }
 
   handleChange = ({ target }) => {
@@ -40,18 +47,33 @@ class Home extends Component {
   render() {
     const {
       products,
+      categorySearched,
     } = this.state;
+
+    const displaySearch = products.length === 0;
+    const selectedProducts = displaySearch ? categorySearched : products;
 
     return (
       <div className="home-container">
-        <Category />
+        <Category
+          handleCategoryClick={ this.handleCategoryClick }
+        />
         <div className="side-container">
-          <Header
-            handleChange={ this.handleChange }
-            handleClick={ this.handleClick }
+          <input
+            type="text"
+            onChange={ this.handleChange }
+            placeholder="Digite aqui"
+            data-testid="query-input"
           />
+          <button
+            type="submit"
+            data-testid="query-button"
+            onClick={ this.handleClick }
+          >
+            Pesquisar
+          </button>
           <Search
-            products={ products }
+            products={ selectedProducts }
           />
         </div>
       </div>
@@ -59,4 +81,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default InputSearch;
