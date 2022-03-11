@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import carshop from '../img/carshop2.png';
 
 class Header extends Component {
@@ -6,7 +7,9 @@ class Header extends Component {
     return (
       <header className="header-container">
         <input type="text" />
-        <img src={ carshop } alt="img-carshop" />
+        <Link to="/cart" data-testid="shopping-cart-button">
+          <img src={ carshop } alt="img-carshop" />
+        </Link>
       </header>
     );
   }
