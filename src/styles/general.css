@@ -46,3 +46,13 @@
 .side-container {
   width: 100%;
 }
+
+.product-container ul {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: red;
+}
+
+.product-item  img{
+  max-width: 30%
+}

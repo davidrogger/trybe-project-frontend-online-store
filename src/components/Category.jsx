@@ -18,10 +18,10 @@ class Category extends Component {
     return (
       <div className="category-container">
         {
-          categories.map((category, index) => (
+          categories.map((category) => (
             <button
               type="button"
-              key={ index }
+              key={ category.id }
               data-testid="category"
             >
               {category.name}
