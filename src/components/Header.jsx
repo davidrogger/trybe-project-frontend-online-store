@@ -24,8 +24,6 @@ class Header extends Component {
         >
           Pesquisar
         </button>
-        <img src={ carshop } alt="img-carshop" />
-        <input type="text" />
         <Link to="/cart" data-testid="shopping-cart-button">
           <img src={ carshop } alt="img-carshop" />
         </Link>
