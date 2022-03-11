@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 
 // Componentes
 import Search from '../components/Search';
-import Header from '../components/Header';
 import Category from '../components/Category';
 
 // Paginas
@@ -14,7 +13,7 @@ import '../styles/general.css';
 // Funçôes
 import { getProductsFromCategoryAndQuery } from '../services/api';
 
-class Home extends Component {
+class InputSearch extends Component {
   constructor() {
     super();
     this.state = {
@@ -46,10 +45,19 @@ class Home extends Component {
       <div className="home-container">
         <Category />
         <div className="side-container">
-          <Header
-            handleChange={ this.handleChange }
-            handleClick={ this.handleClick }
+          <input
+            type="text"
+            onChange={ this.handleChange }
+            placeholder="Digite aqui"
+            data-testid="query-input"
           />
+          <button
+            type="submit"
+            data-testid="query-button"
+            onClick={ this.handleClick }
+          >
+            Pesquisar
+          </button>
           <Search
             products={ products }
           />
@@ -59,4 +67,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default InputSearch;
