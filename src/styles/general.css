@@ -29,6 +29,11 @@
   object-fit: contain;
 }
 
+.header-container a {
+  height: 60%;
+  object-fit: contain;
+}
+
 .search-container {
   background-color: bisque;
   display: flex;
