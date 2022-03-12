@@ -10,7 +10,7 @@ class Header extends Component {
       <header className="header-container">
         <h1>Project Frontend Online Storage</h1>
         <div className="header-nav">
-          <Link to="/" data-testid="shopping-cart-button">
+          <Link to="/">
             <img src={ searchIco } alt="img-search" />
           </Link>
           <Link to="/cart" data-testid="shopping-cart-button">
