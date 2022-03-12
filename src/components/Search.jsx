@@ -16,12 +16,15 @@ class Search extends Component {
     const productsFound = (items) => (
       <ul>
         {items.map(({ price, thumbnail, title, id }) => (
+
           <ProductCard
             key={ id }
+            id={ id }
             productTitle={ title }
             productImg={ thumbnail }
             productPrice={ price }
           />
+
         ))}
       </ul>
     );
