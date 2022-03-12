@@ -20,6 +20,7 @@ class InputSearch extends Component {
       searchInput: '',
       products: [],
       categorySearched: [],
+      cateogiryFilter: undefined,
     };
   }
 
@@ -27,6 +28,7 @@ class InputSearch extends Component {
     const response = await getProductsFromCategoryAndQuery(id);
     this.setState({
       categorySearched: response.results,
+      cateogiryFilter: id,
     });
   }
 
@@ -37,8 +39,8 @@ class InputSearch extends Component {
   }
 
   handleClick = async () => {
-    const { searchInput } = this.state;
-    const response = await getProductsFromCategoryAndQuery(undefined, searchInput);
+    const { searchInput, cateogiryFilter } = this.state;
+    const response = await getProductsFromCategoryAndQuery(cateogiryFilter, searchInput);
     this.setState({
       products: response.results,
     });
