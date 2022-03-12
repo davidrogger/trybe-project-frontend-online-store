@@ -52,7 +52,6 @@
   background-color: bisque;
   display: flex;
   min-height: 89%;
-  justify-content: center;
   padding: 25px 0;
 }
 
@@ -60,9 +59,21 @@
   width: 100%;
 }
 
-.product-container ul {
+.search-container ul {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
+  list-style-type: none;
+}
+
+.product-item {
+  border: 1px solid rgba(0, 0, 0, 0.377);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 250px;
+  margin: 10px;
+  width: 250px;
 }
 
 .product-item img {
