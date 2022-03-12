@@ -19,18 +19,21 @@ class Category extends Component {
     const { categories } = this.state;
     return (
       <div className="category-container">
-        {
-          categories.map((category) => (
-            <button
-              type="button"
-              key={ category.id }
-              data-testid="category"
-              onClick={ () => handleCategoryClick(category.id) }
-            >
-              {category.name}
-            </button>
-          ))
-        }
+        <span> Selecione uma categoria:</span>
+        <div className="category-options">
+          {
+            categories.map((category) => (
+              <button
+                type="button"
+                key={ category.id }
+                data-testid="category"
+                onClick={ () => handleCategoryClick(category.id) }
+              >
+                {category.name}
+              </button>
+            ))
+          }
+        </div>
       </div>
     );
   }
