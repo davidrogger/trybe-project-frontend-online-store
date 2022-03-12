@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import InputSearch from '../Pages/InputSearch';
 import Header from './Header';
 import Cart from '../Pages/Cart';
+import ProductDetails from './ProductDetails';
 
 class Home extends Component {
   render() {
@@ -10,6 +11,7 @@ class Home extends Component {
       <BrowserRouter>
         <Header />
         <Switch>
+          <Route path="/productdetails/:id" component={ ProductDetails } />
           <Route path="/cart" component={ Cart } />
           <Route exact path="/" component={ InputSearch } />
         </Switch>
