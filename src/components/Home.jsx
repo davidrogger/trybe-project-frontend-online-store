@@ -10,18 +10,19 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      cartItens: [],
+      cartItems: [],
     };
   }
 
   addToCart = (item) => {
-    const { cartItens } = this.state;
+    const { cartItems } = this.state;
     this.setState({
-      cartItens: [...cartItens, item],
+      cartItems: [...cartItems, item],
     });
   }
 
   render() {
+    const { cartItems } = this.state;
     return (
       <BrowserRouter>
         <Header />
@@ -33,7 +34,13 @@ class Home extends Component {
               addToCart={ this.addToCart }
             />) }
           />
-          <Route path="/cart" component={ Cart } />
+          <Route
+            path="/cart"
+            render={ (props) => (<Cart
+              { ...props }
+              cartItems={ cartItems }
+            />) }
+          />
           <Route exact path="/" component={ InputSearch } />
         </Switch>
       </BrowserRouter>
