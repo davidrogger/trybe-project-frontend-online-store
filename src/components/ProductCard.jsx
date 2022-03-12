@@ -12,7 +12,7 @@ class ProductCard extends Component {
     } = this.props;
 
     return (
-      <Link to={ `/productdetails/${id}` }>
+      <Link to={ `/productdetails/${id}` } data-testid="product-detail-link">
         <li
           data-testid="product"
           className="product-item"
