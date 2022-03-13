@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getProductsDetails } from '../services/api';
+import Forms from './Forms';
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class ProductDetail extends Component {
             Adicionar ao Carrinho
 
           </button>
+          <Forms />
         </div>
       );
   }
