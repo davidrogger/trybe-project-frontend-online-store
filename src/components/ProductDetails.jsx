@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getProductsDetails } from '../services/api';
 import Forms from './Forms';
+// import DisplayReviews from './DisplayReviews';
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class ProductDetail extends Component {
     this.state = {
       productDetail: {},
       productDetailLoading: true,
+      productId: '',
     };
   }
 
@@ -19,12 +21,13 @@ class ProductDetail extends Component {
     this.setState({
       productDetail,
       productDetailLoading: false,
+      productId: id,
     });
   }
 
   render() {
     const { productDetail, productDetail: { title, thumbnail,
-      price }, productDetailLoading } = this.state;
+      price }, productDetailLoading, productId } = this.state;
     const { addToCart } = this.props;
     return productDetailLoading
       ? <p>Carregando</p> : (
@@ -40,7 +43,8 @@ class ProductDetail extends Component {
             Adicionar ao Carrinho
 
           </button>
-          <Forms />
+          <Forms id={ productId } />
+          {/* <DisplayReviews /> */}
         </div>
       );
   }
