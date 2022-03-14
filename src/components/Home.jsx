@@ -41,7 +41,14 @@ class Home extends Component {
               cartItems={ cartItems }
             />) }
           />
-          <Route exact path="/" component={ InputSearch } />
+          <Route
+            exact
+            path="/"
+            render={ (props) => (<InputSearch
+              { ...props }
+              addToCart={ this.addToCart }
+            />) }
+          />
         </Switch>
       </BrowserRouter>
     );

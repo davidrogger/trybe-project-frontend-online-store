@@ -12,19 +12,20 @@ class ProductCard extends Component {
     } = this.props;
 
     return (
-      <Link to={ `/productdetails/${id}` } data-testid="product-detail-link">
-        <li
-          data-testid="product"
-          className="product-item"
-        >
-          <img
-            src={ productImg }
-            alt={ productTitle }
-          />
-          <p>{ productTitle }</p>
-          <p>{ productPrice }</p>
-        </li>
-      </Link>
+      <li
+        data-testid="product"
+        className="product-item"
+      >
+        <img
+          src={ productImg }
+          alt={ productTitle }
+        />
+        <p>{ productTitle }</p>
+        <p>{ productPrice }</p>
+        <Link to={ `/productdetails/${id}` } data-testid="product-detail-link">
+          <p>Detalhes</p>
+        </Link>
+      </li>
     );
   }
 }
