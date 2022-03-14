@@ -52,10 +52,10 @@ class InputSearch extends Component {
       products,
       categorySearched,
     } = this.state;
-    const { addCart } = this.props;
+    const { addToCart } = this.props;
     const displaySearch = products.length === 0;
     const selectedProducts = displaySearch ? categorySearched : products;
-
+    console.log(addToCart);
     return (
       <div className="home-container">
         <Category
@@ -77,7 +77,7 @@ class InputSearch extends Component {
           </button>
           <Search
             products={ selectedProducts }
-            addCart={ addCart }
+            addToCart={ addToCart }
           />
         </div>
       </div>
@@ -86,7 +86,7 @@ class InputSearch extends Component {
 }
 
 InputSearch.propTypes = {
-  addCart: PropTypes.func,
+  addToCart: PropTypes.func,
 }.isRequired;
 
 export default InputSearch;
