@@ -1,5 +1,6 @@
 // Bibliotecas
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 // Componentes
 import Search from '../components/Search';
@@ -51,7 +52,7 @@ class InputSearch extends Component {
       products,
       categorySearched,
     } = this.state;
-
+    const { addCart } = this.props;
     const displaySearch = products.length === 0;
     const selectedProducts = displaySearch ? categorySearched : products;
 
@@ -76,11 +77,16 @@ class InputSearch extends Component {
           </button>
           <Search
             products={ selectedProducts }
+            addCart={ addCart }
           />
         </div>
       </div>
     );
   }
 }
+
+InputSearch.propTypes = {
+  addCart: PropTypes.func,
+}.isRequired;
 
 export default InputSearch;
