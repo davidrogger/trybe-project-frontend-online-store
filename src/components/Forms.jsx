@@ -43,7 +43,7 @@ class Forms extends Component {
     const { reloadingReview } = this.props;
     event.preventDefault();
     addReview(review);
-    // this.cleanInputForms();
+    this.cleanInputForms();
     reloadingReview();
   }
 
