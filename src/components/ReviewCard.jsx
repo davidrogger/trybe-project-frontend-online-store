@@ -7,21 +7,9 @@ class ReviewCard extends Component {
     const { review: { email, productRating, review } } = this.props;
     return (
       <div className="reviewcard-container">
-        <p>
-          Email:
-          {' '}
-          {email}
-        </p>
-        <p>
-          Nota:
-          {' '}
-          {productRating}
-        </p>
-        {review && (
-          <p>
-            {review}
-          </p>
-        )}
+        <p>{email}</p>
+        <p>{productRating}</p>
+        {review}
       </div>
     );
   }
