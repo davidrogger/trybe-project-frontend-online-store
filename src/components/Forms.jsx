@@ -1,5 +1,9 @@
+// Bibliotecas
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
+// Serviços
+import { addReview } from '../services/localStorage';
 
 class Forms extends Component {
   constructor() {
@@ -7,7 +11,7 @@ class Forms extends Component {
     this.state = {
       reviews: {
         email: '',
-        'product-rating': '',
+        productRating: '',
         review: '',
         productId: '',
       },
@@ -22,6 +26,25 @@ class Forms extends Component {
         productId: id,
       },
     }));
+  }
+
+  cleanInputForms = () => {
+    this.setState({
+      reviews: {
+        email: '',
+        productRating: '',
+        review: '',
+        productId: '',
+      },
+    });
+  }
+
+  submitBtn = (event, review) => {
+    const { reloadingReview } = this.props;
+    event.preventDefault();
+    addReview(review);
+    this.cleanInputForms();
+    reloadingReview();
   }
 
 stateUpdate = ({ target }) => {
@@ -41,11 +64,11 @@ createRadioButton = (arr, formState) => (
       <label htmlFor={ rating } key={ rating }>
         <input
           type="radio"
-          name="product-rating"
+          name="productRating"
           id={ rating }
           data-testid={ `${rating}-rating` }
           required
-          checked={ formState['product-rating'] === rating }
+          checked={ formState.productRating === rating }
           onChange={ this.stateUpdate }
           value={ rating }
         />
@@ -55,14 +78,10 @@ createRadioButton = (arr, formState) => (
   </div>
 )
 
-submitBtn = (e) => {
-  e.preventDefault();
-}
-
 render() {
   const { reviews } = this.state;
   return (
-    <form>
+    <form className="forms-review-container">
       <label htmlFor="email-input">
         E-mail:
         <input
@@ -90,9 +109,9 @@ render() {
         />
       </label>
       <button
-        onClick={ this.submitBtn }
+        onClick={ (event) => this.submitBtn(event, reviews) }
         data-testid="submit-review-btn"
-        type="submit"
+        type="button"
       >
         Enviar sua avaliação
 
@@ -105,5 +124,6 @@ render() {
 export default Forms;
 
 Forms.propTypes = {
-  id: PropTypes.string.isRequired,
-};
+  id: PropTypes.string,
+  submitBtn: PropTypes.func,
+}.isRequired;
