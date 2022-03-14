@@ -43,13 +43,12 @@ class Forms extends Component {
     const { reloadingReview } = this.props;
     event.preventDefault();
     addReview(review);
-    this.cleanInputForms();
+    // this.cleanInputForms();
     reloadingReview();
   }
 
 stateUpdate = ({ target }) => {
   const { name, value } = target;
-  // const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
   this.setState((prevState) => ({
     reviews: {
       ...prevState.reviews,
@@ -63,11 +62,10 @@ createRadioButton = (arr, formState) => (
     {arr.map((rating) => (
       <label htmlFor={ rating } key={ rating }>
         <input
+          data-testid={ `${rating}-rating` }
           type="radio"
           name="productRating"
           id={ rating }
-          data-testid={ `${rating}-rating` }
-          required
           checked={ formState.productRating === rating }
           onChange={ this.stateUpdate }
           value={ rating }
@@ -85,33 +83,30 @@ render() {
       <label htmlFor="email-input">
         E-mail:
         <input
+          data-testid="product-detail-email"
           type="email"
           name="email"
           id="email-input"
-          data-testid="product-detail-email"
           placeholder="digite seu e-mail"
           value={ reviews.email }
           required
           onChange={ this.stateUpdate }
         />
       </label>
+
       {this.createRadioButton(['1', '2', '3', '4', '5'], reviews)}
-      <label htmlFor="user-review">
-        <textarea
-          name="review"
-          id="user-review"
-          cols="30"
-          rows="10"
-          data-testid="product-detail-evaluation"
-          placeholder="Escreva sua avaliação aqui"
-          value={ reviews.review }
-          onChange={ this.stateUpdate }
-        />
-      </label>
+
+      <textarea
+        data-testid="product-detail-evaluation"
+        name="review"
+        value={ reviews.review }
+        onChange={ this.stateUpdate }
+      />
+
       <button
         onClick={ (event) => this.submitBtn(event, reviews) }
         data-testid="submit-review-btn"
-        type="button"
+        type="submit"
       >
         Enviar sua avaliação
 
