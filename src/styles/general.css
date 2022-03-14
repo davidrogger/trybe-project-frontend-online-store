@@ -103,7 +103,7 @@
   display: flex;
   flex-direction: column;
   margin: 50px auto;
-  width: 350px;
+  width: 100%;
 }
 
 .cartItens-container li {
@@ -126,7 +126,11 @@
   margin: 50px 0;
 }
 
+.displayReview-container {
+  background-color: antiquewhite;
+  width: 100%;
+}
+
 .reviewcard-container {
   border-top: 1px solid black;
-  margin: 25px 0;
 }
