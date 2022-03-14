@@ -4,7 +4,7 @@ import ProductCard from './ProductCard';
 
 class Search extends Component {
   render() {
-    const { products, addToCart } = this.props;
+    const { products } = this.props;
     const searchDisplay = products.length === 0;
     const emptySearch = (
       <p
@@ -15,18 +15,19 @@ class Search extends Component {
 
     const productsFound = (items) => (
       <ul>
-        {items.map((item) => (
+        {items.map(({ price, thumbnail, title, id }) => (
 
           <ProductCard
-            addToCart={ addToCart }
-            key={ item.id }
-            productDetails={ item }
+            key={ id }
+            id={ id }
+            productTitle={ title }
+            productImg={ thumbnail }
+            productPrice={ price }
           />
 
         ))}
       </ul>
     );
-    console.log(addToCart);
     return (
 
       <div className="search-container">
