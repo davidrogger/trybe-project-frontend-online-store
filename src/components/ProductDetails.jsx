@@ -49,18 +49,28 @@ class ProductDetail extends Component {
     const { addToCart } = this.props;
     return productDetailLoading
       ? <p>Carregando</p> : (
-        <div className="productdetail-container">
-          <h3 data-testid="product-detail-name">{title}</h3>
-          <img src={ thumbnail } alt={ title } />
-          <p>{price}</p>
-          <button
-            data-testid="product-detail-add-to-cart"
-            type="button"
-            onClick={ () => addToCart(productDetail) }
-          >
-            Adicionar ao Carrinho
-          </button>
-        </div>
+        <>
+          <div className="productdetail-container">
+            <h3 data-testid="product-detail-name">{title}</h3>
+            <img src={ thumbnail } alt={ title } />
+            <p>
+              Preço:
+              {price}
+            </p>
+            <button
+              data-testid="product-detail-add-to-cart"
+              type="button"
+              onClick={ () => addToCart(productDetail) }
+            >
+              Adicionar ao Carrinho
+
+            </button>
+          </div>
+          <Forms id={ productId } reloadingReview={ this.reloadingReview } />
+          {!reloadReviewDisplay
+            ? <p>Carregando</p>
+            : <DisplayReviews />}
+        </>
       );
   }
 }

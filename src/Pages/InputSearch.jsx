@@ -1,6 +1,5 @@
 // Bibliotecas
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 // Componentes
 import Search from '../components/Search';
@@ -52,10 +51,10 @@ class InputSearch extends Component {
       products,
       categorySearched,
     } = this.state;
-    const { addToCart } = this.props;
+
     const displaySearch = products.length === 0;
     const selectedProducts = displaySearch ? categorySearched : products;
-    console.log(addToCart);
+
     return (
       <div className="home-container">
         <Category
@@ -77,16 +76,11 @@ class InputSearch extends Component {
           </button>
           <Search
             products={ selectedProducts }
-            addToCart={ addToCart }
           />
         </div>
       </div>
     );
   }
 }
-
-InputSearch.propTypes = {
-  addToCart: PropTypes.func,
-}.isRequired;
 
 export default InputSearch;
