@@ -7,7 +7,8 @@ class ProductCard extends Component {
   render() {
     const { productDetails, addToCart } = this.props;
     const { thumbnail: productImg, title: productTitle,
-      price: productPrice, id } = productDetails;
+      price: productPrice, id,
+      shipping: { free_shipping: freeShipping } } = productDetails;
 
     return (
       <li
@@ -20,6 +21,10 @@ class ProductCard extends Component {
         />
         <p>{ productTitle }</p>
         <p>{`R$ ${productPrice}`}</p>
+
+        { freeShipping
+              && (<span data-testid="free-shipping">Frete Grátis</span>)}
+
         <Link to={ `/productdetails/${id}` } data-testid="product-detail-link">
           <p>Detalhes</p>
         </Link>
