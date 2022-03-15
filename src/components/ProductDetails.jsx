@@ -17,6 +17,7 @@ class ProductDetail extends Component {
       productDetail: {},
       productDetailLoading: true,
       productId: '',
+      freeShipping: false,
     };
   }
 
@@ -32,6 +33,8 @@ class ProductDetail extends Component {
       productDetailLoading: false,
       productId: id,
       reloadReviewDisplay: true,
+      freeShipping: productDetail.shipping.free_shipping,
+
     });
   }
 
@@ -45,7 +48,8 @@ class ProductDetail extends Component {
 
   render() {
     const { productDetail, productDetail: { title, thumbnail,
-      price }, productDetailLoading, productId, reloadReviewDisplay } = this.state;
+      price }, productDetailLoading, productId,
+    reloadReviewDisplay, freeShipping } = this.state;
     const { addToCart } = this.props;
     return productDetailLoading
       ? <p>Carregando</p> : (
@@ -57,6 +61,8 @@ class ProductDetail extends Component {
               Preço:
               {price}
             </p>
+            { freeShipping
+              && (<span data-testid="free-shipping">Frete Grátis</span>)}
             <button
               data-testid="product-detail-add-to-cart"
               type="button"
