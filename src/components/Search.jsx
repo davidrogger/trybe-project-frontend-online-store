@@ -26,7 +26,7 @@ class Search extends Component {
         ))}
       </ul>
     );
-    console.log(addToCart);
+    // console.log(addToCart);
     return (
 
       <div className="search-container">

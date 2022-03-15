@@ -25,7 +25,7 @@ class Home extends Component {
     const { cartItems } = this.state;
     return (
       <BrowserRouter>
-        <Header />
+        <Header cartItems={ cartItems } />
         <Switch>
           <Route
             path="/productdetails/:id"
