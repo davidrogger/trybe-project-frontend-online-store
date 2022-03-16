@@ -12,6 +12,7 @@ class Home extends Component {
 
     this.state = {
       cartItems: [],
+      cartSize: 0,
     };
   }
 
@@ -29,10 +30,10 @@ class Home extends Component {
   }
 
   render() {
-    const { cartItems } = this.state;
+    const { cartItems, cartSize } = this.state;
     return (
       <BrowserRouter>
-        <Header cartItems={ cartItems } />
+        <Header cartSize={ cartSize } />
         <Switch>
           <Route
             path="/productdetails/:id"
