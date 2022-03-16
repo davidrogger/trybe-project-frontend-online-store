@@ -11,21 +11,39 @@ class Home extends Component {
 
     this.state = {
       cartItems: [],
+      cartSize: 0,
     };
+  }
+
+  componentDidMount() {
+    this.getProductsFromCart();
+  }
+
+  getProductsFromCart = () => {
+    const cartSize = JSON.parse(localStorage.getItem('cartSize'));
+    if (cartSize !== null) {
+      this.setState({
+        cartSize: cartSize.length,
+      });
+    }
   }
 
   addToCart = (item) => {
     const { cartItems } = this.state;
     this.setState({
       cartItems: [...cartItems, item],
+    }, () => {
+      const size = JSON.stringify([...cartItems, item]);
+      localStorage.setItem('cartSize', size);
+      this.getProductsFromCart();
     });
   }
 
   render() {
-    const { cartItems } = this.state;
+    const { cartItems, cartSize } = this.state;
     return (
       <BrowserRouter>
-        <Header cartItems={ cartItems } />
+        <Header cartSize={ cartSize } />
         <Switch>
           <Route
             path="/productdetails/:id"
