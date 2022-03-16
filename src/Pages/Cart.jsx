@@ -17,7 +17,6 @@ class Cart extends Component {
 
   render() {
     const { cartItems } = this.props;
-    const cartItemsSize = cartItems.length;
 
     const emptyCart = (
       <p data-testid="shopping-cart-empty-message">
@@ -30,8 +29,7 @@ class Cart extends Component {
       <div className="cartItens-container">
         {cartDisplay
           ? emptyCart
-          : this.cartItensList(cartItems)}
-        <div data-testid="shopping-cart-size">{ cartItemsSize }</div>
+          : (this.cartItensList(cartItems))}
       </div>
     );
   }
