@@ -55,7 +55,7 @@ class InputSearch extends Component {
     const { addToCart } = this.props;
     const displaySearch = products.length === 0;
     const selectedProducts = displaySearch ? categorySearched : products;
-    console.log(addToCart);
+    // console.log(addToCart);
     return (
       <div className="home-container">
         <Category

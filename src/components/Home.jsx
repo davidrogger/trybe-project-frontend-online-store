@@ -4,6 +4,7 @@ import InputSearch from '../Pages/InputSearch';
 import Header from './Header';
 import Cart from '../Pages/Cart';
 import ProductDetails from './ProductDetails';
+import { addCartInStorage, readCartInStorage } from '../services/localStorage';
 
 class Home extends Component {
   constructor(props) {
@@ -14,10 +15,16 @@ class Home extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({ cartItems: readCartInStorage() });
+  }
+
   addToCart = (item) => {
     const { cartItems } = this.state;
     this.setState({
       cartItems: [...cartItems, item],
+    }, () => {
+      addCartInStorage(item);
     });
   }
 
@@ -25,7 +32,7 @@ class Home extends Component {
     const { cartItems } = this.state;
     return (
       <BrowserRouter>
-        <Header />
+        <Header cartSize={ cartItems.length } />
         <Switch>
           <Route
             path="/productdetails/:id"

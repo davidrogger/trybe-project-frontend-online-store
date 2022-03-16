@@ -29,7 +29,7 @@ class Cart extends Component {
       <div className="cartItens-container">
         {cartDisplay
           ? emptyCart
-          : this.cartItensList(cartItems)}
+          : (this.cartItensList(cartItems))}
       </div>
     );
   }
