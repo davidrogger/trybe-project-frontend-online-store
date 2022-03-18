@@ -5,12 +5,13 @@ import ProductCartItems from '../components/ProductCartItems';
 class Cart extends Component {
   cartItensList = (items) => (
     <ol>
-      {items.map((item) => (
+      {items.map(({ productData, qt }) => (
         <ProductCartItems
-          key={ item.id }
-          title={ item.title }
-          thumbnail={ item.thumbnail }
-          price={ item.price }
+          key={ productData.id }
+          title={ productData.title }
+          thumbnail={ productData.thumbnail }
+          price={ productData.price }
+          qt={ qt }
         />
       ))}
     </ol>);

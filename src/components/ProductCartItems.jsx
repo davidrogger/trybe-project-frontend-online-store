@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class ProductCartItems extends Component {
   render() {
-    const { title, price, thumbnail } = this.props;
+    const { title, price, thumbnail, qt } = this.props;
 
     return (
       <li>
@@ -11,7 +11,7 @@ class ProductCartItems extends Component {
         <p className="cartItem-title" data-testid="shopping-cart-product-name">{title}</p>
         <p className="cartItem-qt">
           Qt:
-          <span data-testid="shopping-cart-product-quantity">1</span>
+          <span data-testid="shopping-cart-product-quantity">{qt}</span>
         </p>
         <span className="cartItem-price">{price}</span>
       </li>

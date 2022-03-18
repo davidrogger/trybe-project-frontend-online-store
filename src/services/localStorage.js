@@ -24,6 +24,6 @@ export const addReview = (review) => {
 export const readCartInStorage = () => JSON.parse(localStorage.getItem(CART_ITEMS_KEY));
 
 export const addCartInStorage = (cartItems) => {
-  const prevCart = readCartInStorage();
-  localStorage.setItem(CART_ITEMS_KEY, JSON.stringify([...prevCart, cartItems]));
+  // const prevCart = readCartInStorage();
+  localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(cartItems));
 };

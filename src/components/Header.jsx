@@ -18,7 +18,7 @@ class Header extends Component {
           <Link to="/cart" data-testid="shopping-cart-button">
             <img src={ carshopIco } alt="img-carshop" />
           </Link>
-          <div data-testid="shopping-cart-size">{ cartSize }</div>
+          {/* <div data-testid="shopping-cart-size">{ cartSize }</div> */}
         </div>
       </header>
     );

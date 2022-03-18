@@ -19,20 +19,28 @@ class Home extends Component {
     this.setState({ cartItems: readCartInStorage() });
   }
 
+  cartCheck = (item) => {
+    const cartHistory = readCartInStorage();
+
+    const productIndex = cartHistory
+      .findIndex(({ productData }) => productData.id === item.id);
+    if (productIndex < 0) return [...cartHistory, { productData: item, qt: 1 }];
+    const { qt } = cartHistory[productIndex];
+    cartHistory[productIndex].qt = qt + 1;
+    return cartHistory;
+  }
+
   addToCart = (item) => {
-    const { cartItems } = this.state;
-    this.setState({
-      cartItems: [...cartItems, item],
-    }, () => {
-      addCartInStorage(item);
-    });
+    const product = this.cartCheck(item);
+    addCartInStorage(product);
+    this.setState({ cartItems: readCartInStorage() });
   }
 
   render() {
     const { cartItems } = this.state;
     return (
       <BrowserRouter>
-        <Header cartSize={ cartItems.length } />
+        <Header /* cartSize={ cartItems.length } */ />
         <Switch>
           <Route
             path="/productdetails/:id"
