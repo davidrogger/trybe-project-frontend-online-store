@@ -4,7 +4,7 @@ import ProductCartItems from '../components/ProductCartItems';
 
 class Cart extends Component {
   cartItensList = (items) => (
-    <ol>
+    <ol className="cartList-container">
       {items.map(({ productData, productQt }) => (
         <ProductCartItems
           key={ productData.id }

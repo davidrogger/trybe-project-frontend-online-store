@@ -6,14 +6,30 @@ class ProductCartItems extends Component {
     const { title, price, thumbnail, productQt } = this.props;
 
     return (
-      <li>
-        <img src={ thumbnail } alt={ title } />
-        <p className="cartItem-title" data-testid="shopping-cart-product-name">{title}</p>
-        <p className="cartItem-qt">
-          Qt:
+      <li className="cartProductList-container">
+        <div className="cartProduct-img-title-container">
+          <img src={ thumbnail } alt={ title } />
+          <p data-testid="shopping-cart-product-name">{title}</p>
+        </div>
+        <div className="quantity-container">
+
+          <button
+            type="button"
+            data-testid="product-decrease-quantity"
+            disabled={ productQt === 1 }
+          >
+            -
+          </button>
           <span data-testid="shopping-cart-product-quantity">{productQt}</span>
-        </p>
-        <span className="cartItem-price">{price}</span>
+          <button
+            type="button"
+            data-testid="product-increase-quantity"
+          >
+            +
+          </button>
+
+        </div>
+        <span>{`R$: ${(price * productQt).toFixed(2)}`}</span>
       </li>
     );
   }
