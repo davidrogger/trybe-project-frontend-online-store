@@ -21,6 +21,20 @@ class Home extends Component {
     this.cartWeight();
   }
 
+  handleQuantity = (index, operator) => {
+    const cartHistory = readCartInStorage();
+    const { productQt } = cartHistory[index];
+    if (operator === 'increase') {
+      cartHistory[index].productQt = productQt + 1;
+    }
+    if (operator === 'decrease') {
+      cartHistory[index].productQt = productQt - 1;
+    }
+    addCartInStorage(cartHistory);
+    this.setState({ cartItems: readCartInStorage() });
+    this.cartWeight();
+  }
+
   cartWeight = () => {
     const cartHistory = readCartInStorage();
     const productCartQt = cartHistory
@@ -65,6 +79,7 @@ class Home extends Component {
             render={ (props) => (<Cart
               { ...props }
               cartItems={ cartItems }
+              handleQuantity={ this.handleQuantity }
             />) }
           />
           <Route

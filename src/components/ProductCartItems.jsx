@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class ProductCartItems extends Component {
   render() {
-    const { title, price, thumbnail, productQt } = this.props;
+    const { title, price, thumbnail, productQt, index, handleQuantity } = this.props;
 
     return (
       <li className="cartProductList-container">
@@ -16,6 +16,7 @@ class ProductCartItems extends Component {
           <button
             type="button"
             data-testid="product-decrease-quantity"
+            onClick={ () => handleQuantity(index, 'decrease') }
             disabled={ productQt === 1 }
           >
             -
@@ -24,6 +25,7 @@ class ProductCartItems extends Component {
           <button
             type="button"
             data-testid="product-increase-quantity"
+            onClick={ () => handleQuantity(index, 'increase') }
           >
             +
           </button>
