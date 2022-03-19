@@ -11,6 +11,7 @@ class Cart extends Component {
           title={ productData.title }
           thumbnail={ productData.thumbnail }
           price={ productData.price }
+          availableQt={ productData.available_quantity }
           productQt={ productQt }
           index={ index }
           handleQuantity={ handleQuantity }
