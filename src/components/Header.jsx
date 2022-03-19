@@ -7,7 +7,7 @@ import searchIco from '../img/search2.png';
 
 class Header extends Component {
   render() {
-    const { cartSize } = this.props;
+    const { productCartQt } = this.props;
     return (
       <header className="header-container">
         <h1>Project Frontend Online Storage</h1>
@@ -18,7 +18,7 @@ class Header extends Component {
           <Link to="/cart" data-testid="shopping-cart-button">
             <img src={ carshopIco } alt="img-carshop" />
           </Link>
-          {/* <div data-testid="shopping-cart-size">{ cartSize }</div> */}
+          <div data-testid="shopping-cart-size">{ productCartQt }</div>
         </div>
       </header>
     );
@@ -26,7 +26,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  cartItems: PropTypes.array,
+  cartSize: PropTypes.number,
 }.isRequired;
 
 export default Header;

@@ -12,11 +12,21 @@ class Home extends Component {
 
     this.state = {
       cartItems: [],
+      productCartQt: 0,
     };
   }
 
   componentDidMount() {
     this.setState({ cartItems: readCartInStorage() });
+    this.cartWeight();
+  }
+
+  cartWeight = () => {
+    const cartHistory = readCartInStorage();
+    const productCartQt = cartHistory
+      .map(({ productQt }) => productQt)
+      .reduce((total, quantity) => total + quantity, 0);
+    this.setState({ productCartQt });
   }
 
   cartCheck = (item) => {
@@ -24,9 +34,9 @@ class Home extends Component {
 
     const productIndex = cartHistory
       .findIndex(({ productData }) => productData.id === item.id);
-    if (productIndex < 0) return [...cartHistory, { productData: item, qt: 1 }];
-    const { qt } = cartHistory[productIndex];
-    cartHistory[productIndex].qt = qt + 1;
+    if (productIndex < 0) return [...cartHistory, { productData: item, productQt: 1 }];
+    const { productQt } = cartHistory[productIndex];
+    cartHistory[productIndex].productQt = productQt + 1;
     return cartHistory;
   }
 
@@ -34,13 +44,14 @@ class Home extends Component {
     const product = this.cartCheck(item);
     addCartInStorage(product);
     this.setState({ cartItems: readCartInStorage() });
+    this.cartWeight();
   }
 
   render() {
-    const { cartItems } = this.state;
+    const { cartItems, productCartQt } = this.state;
     return (
       <BrowserRouter>
-        <Header /* cartSize={ cartItems.length } */ />
+        <Header productCartQt={ productCartQt } />
         <Switch>
           <Route
             path="/productdetails/:id"
