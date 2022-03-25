@@ -3,17 +3,37 @@ import PropTypes from 'prop-types';
 
 class ProductCartItems extends Component {
   render() {
-    const { title, price, thumbnail } = this.props;
+    const { title, price, thumbnail, productQt, index,
+      handleQuantity, availableQt } = this.props;
 
     return (
-      <li>
-        <img src={ thumbnail } alt={ title } />
-        <p className="cartItem-title" data-testid="shopping-cart-product-name">{title}</p>
-        <p className="cartItem-qt">
-          Qt:
-          <span data-testid="shopping-cart-product-quantity">1</span>
-        </p>
-        <span className="cartItem-price">{price}</span>
+      <li className="cartProductList-container">
+        <div className="cartProduct-img-title-container">
+          <img src={ thumbnail } alt={ title } />
+          <p data-testid="shopping-cart-product-name">{title}</p>
+        </div>
+        <div className="quantity-container">
+
+          <button
+            type="button"
+            data-testid="product-decrease-quantity"
+            onClick={ () => handleQuantity(index, 'decrease', availableQt) }
+            disabled={ productQt === 1 }
+          >
+            -
+          </button>
+          <span data-testid="shopping-cart-product-quantity">{productQt}</span>
+          <button
+            type="button"
+            data-testid="product-increase-quantity"
+            onClick={ () => handleQuantity(index, 'increase') }
+            disabled={ productQt === availableQt }
+          >
+            +
+          </button>
+
+        </div>
+        <span>{`R$: ${(price * productQt).toFixed(2)}`}</span>
       </li>
     );
   }

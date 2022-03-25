@@ -12,27 +12,60 @@ class Home extends Component {
 
     this.state = {
       cartItems: [],
+      productCartQt: 0,
     };
   }
 
   componentDidMount() {
     this.setState({ cartItems: readCartInStorage() });
+    this.cartWeight();
+  }
+
+  handleQuantity = (index, operator) => {
+    const cartHistory = readCartInStorage();
+    const { productQt } = cartHistory[index];
+    if (operator === 'increase') {
+      cartHistory[index].productQt = productQt + 1;
+    }
+    if (operator === 'decrease') {
+      cartHistory[index].productQt = productQt - 1;
+    }
+    addCartInStorage(cartHistory);
+    this.setState({ cartItems: readCartInStorage() });
+    this.cartWeight();
+  }
+
+  cartWeight = () => {
+    const cartHistory = readCartInStorage();
+    const productCartQt = cartHistory
+      .map(({ productQt }) => productQt)
+      .reduce((total, quantity) => total + quantity, 0);
+    this.setState({ productCartQt });
+  }
+
+  cartCheck = (item) => {
+    const cartHistory = readCartInStorage();
+
+    const productIndex = cartHistory
+      .findIndex(({ productData }) => productData.id === item.id);
+    if (productIndex < 0) return [...cartHistory, { productData: item, productQt: 1 }];
+    const { productQt } = cartHistory[productIndex];
+    cartHistory[productIndex].productQt = productQt + 1;
+    return cartHistory;
   }
 
   addToCart = (item) => {
-    const { cartItems } = this.state;
-    this.setState({
-      cartItems: [...cartItems, item],
-    }, () => {
-      addCartInStorage(item);
-    });
+    const product = this.cartCheck(item);
+    addCartInStorage(product);
+    this.setState({ cartItems: readCartInStorage() });
+    this.cartWeight();
   }
 
   render() {
-    const { cartItems } = this.state;
+    const { cartItems, productCartQt } = this.state;
     return (
       <BrowserRouter>
-        <Header cartSize={ cartItems.length } />
+        <Header productCartQt={ productCartQt } />
         <Switch>
           <Route
             path="/productdetails/:id"
@@ -46,6 +79,7 @@ class Home extends Component {
             render={ (props) => (<Cart
               { ...props }
               cartItems={ cartItems }
+              handleQuantity={ this.handleQuantity }
             />) }
           />
           <Route

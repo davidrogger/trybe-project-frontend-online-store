@@ -3,20 +3,24 @@ import PropTypes from 'prop-types';
 import ProductCartItems from '../components/ProductCartItems';
 
 class Cart extends Component {
-  cartItensList = (items) => (
-    <ol>
-      {items.map((item) => (
+  cartItensList = (items, handleQuantity) => (
+    <ol className="cartList-container">
+      {items.map(({ productData, productQt }, index) => (
         <ProductCartItems
-          key={ item.id }
-          title={ item.title }
-          thumbnail={ item.thumbnail }
-          price={ item.price }
+          key={ productData.id }
+          title={ productData.title }
+          thumbnail={ productData.thumbnail }
+          price={ productData.price }
+          availableQt={ productData.available_quantity }
+          productQt={ productQt }
+          index={ index }
+          handleQuantity={ handleQuantity }
         />
       ))}
     </ol>);
 
   render() {
-    const { cartItems } = this.props;
+    const { cartItems, handleQuantity } = this.props;
 
     const emptyCart = (
       <p data-testid="shopping-cart-empty-message">
@@ -29,7 +33,7 @@ class Cart extends Component {
       <div className="cartItens-container">
         {cartDisplay
           ? emptyCart
-          : (this.cartItensList(cartItems))}
+          : (this.cartItensList(cartItems, handleQuantity))}
       </div>
     );
   }
