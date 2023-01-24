@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import InputSearch from '../Pages/InputSearch';
-import Header from './Header';
-import Cart from '../Pages/Cart';
+import InputSearch from './Search';
+import Header from '../components/Header';
+import Cart from './Cart';
 import ProductDetails from './ProductDetails';
 import { addCartInStorage, readCartInStorage } from '../services/localStorage';
 

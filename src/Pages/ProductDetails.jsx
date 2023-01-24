@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import { getProductsDetails } from '../services/api';
 
 // Componentes
-import Forms from './Forms';
-import DisplayReviews from './DisplayReviews';
+import Forms from '../components/Forms';
+import DisplayReviews from '../components/DisplayReviews';
 
 class ProductDetail extends Component {
   constructor(props) {

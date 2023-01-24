@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 // Componentes
-import Search from '../components/Search';
+import Search from '../components/SearchInput';
 import Category from '../components/Category';
 
 // Paginas
