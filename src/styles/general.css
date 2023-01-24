@@ -16,7 +16,7 @@
 }
 
 .quantity-container button {
-  background-color: white;
+  background: white;
   border: none;
   cursor: pointer;
 }
@@ -79,7 +79,7 @@
 }
 
 .category-container {
-  background-color: #30336b;
+  background: #30336b;
   color: white;
   display: flex;
   flex-direction: column;
@@ -99,7 +99,7 @@
 
 .header-container {
   align-items: center;
-  background-color: #f6e58d;
+  background: #f6e58d;
   border-bottom: 2px solid rgba(0, 0, 0, 0.411);
   display: flex;
   height: 80px;
@@ -137,6 +137,7 @@
 
 .side-container {
   width: 100%;
+  border-left: 1px solid rgb(0, 0, 0, 0.1)
 }
 
 .search-container ul {
@@ -198,7 +199,7 @@
 }
 
 .cartItens-container {
-  background-color: rgb(230, 230, 230);
+  background: rgb(230, 230, 230);
   height: 100vh;
   padding-top: 50px;
 }
@@ -220,7 +221,7 @@
 }
 
 .header-nav img:hover {
-  background-color: bisque;
+  background: bisque;
 }
 
 .productdetail-container {
@@ -239,7 +240,7 @@
 }
 
 .cartList-container {
-  background-color: white;
+  background: white;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%);
   margin: 0 auto;
   width: 80%;
@@ -250,7 +251,7 @@
 }
 
 .displayReview-container {
-  background-color: antiquewhite;
+  background: antiquewhite;
   width: 100%;
 }
 
