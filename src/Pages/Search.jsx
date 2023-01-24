@@ -61,19 +61,22 @@ class InputSearch extends Component {
           handleCategoryClick={ this.handleCategoryClick }
         />
         <div className="side-container">
-          <input
-            type="text"
-            onChange={ this.handleChange }
-            placeholder="Digite aqui"
-            data-testid="query-input"
-          />
-          <button
-            type="submit"
-            data-testid="query-button"
-            onClick={ this.handleClick }
-          >
-            Pesquisar
-          </button>
+          <div className="search-input-container">
+            <input
+              type="text"
+              onChange={ this.handleChange }
+              placeholder="Digite aqui"
+              data-testid="query-input"
+            />
+            <button
+              type="submit"
+              data-testid="query-button"
+              onClick={ this.handleClick }
+            >
+              Pesquisar
+            </button>
+          </div>
+
           <Search
             products={ selectedProducts }
             addToCart={ addToCart }
