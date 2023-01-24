@@ -19,7 +19,7 @@ class Category extends Component {
     const { categories } = this.state;
     return (
       <div className="category-container">
-        <span> Selecione uma categoria:</span>
+        <span>Categorias</span>
         <div className="category-options">
           {
             categories.map((category) => (

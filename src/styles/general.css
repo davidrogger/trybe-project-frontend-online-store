@@ -9,12 +9,25 @@
 }
 
 .category-container {
-  background-color: rgb(58, 116, 116);
+  background-color: #30336b;
   color: white;
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 250px;
+}
+
+.category-container span {
+  align-self: center;
+  margin: 10px;
+}
+
+.category-container button {
+  background: #686de0;
+  border: none;
+  color: white;
+  opacity: 0.9;
+  padding: 10px;
 }
 
 .category-options {
@@ -166,4 +179,8 @@
   background-color: white;
   border: none;
   cursor: pointer;
+}
+
+.category-container button:hover {
+  opacity: 1;
 }
