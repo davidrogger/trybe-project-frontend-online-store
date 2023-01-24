@@ -64,9 +64,17 @@ class Home extends Component {
   render() {
     const { cartItems, productCartQt } = this.state;
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="trybe-project-frontend-online-store">
         <Header productCartQt={ productCartQt } />
         <Switch>
+          <Route
+            exact
+            path="/"
+            render={ (props) => (<InputSearch
+              { ...props }
+              addToCart={ this.addToCart }
+            />) }
+          />
           <Route
             path="/productdetails/:id"
             render={ (props) => (<ProductDetails
@@ -80,14 +88,6 @@ class Home extends Component {
               { ...props }
               cartItems={ cartItems }
               handleQuantity={ this.handleQuantity }
-            />) }
-          />
-          <Route
-            exact
-            path="/"
-            render={ (props) => (<InputSearch
-              { ...props }
-              addToCart={ this.addToCart }
             />) }
           />
         </Switch>
