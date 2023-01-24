@@ -10,7 +10,7 @@ class Header extends Component {
     const { productCartQt } = this.props;
     return (
       <header className="header-container">
-        <h1>Project Frontend Online Storage</h1>
+        <h1>GP30 Online Storage</h1>
         <div className="header-nav">
           <Link to="/">
             <img src={ searchIco } alt="img-search" />
