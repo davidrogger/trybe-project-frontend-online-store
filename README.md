@@ -31,7 +31,7 @@
 
 # Conclusão
 
-- Apesar de não ser a primeira atividade em grupo foi a primeira com mais de 1 intregante, foi muito bom nosso desenvolvimento os integrantes tinham a cabeça aberta para ideias, colaboratividade e transparentes com suas dificuldades.
+- Apesar de não ser a primeira atividade em grupo foi a primeira com bem mais que 1 intregante, foi muito bom nosso desenvolvimento os integrantes tinham a cabeça aberta para ideias, colaboratividade e transparentes com suas dificuldades. Foi um desenvolvimento leve, descontraido e amistoso.
 
 </details>
 
