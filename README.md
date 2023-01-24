@@ -1,8 +1,8 @@
 # Sobre
 
 ## Seção: `Metodologias Ágeis`
-- Nessa seção fui introduzido o manifesto ágil e funcionamento de ![metodologias Ágeis](https://blog.betrybe.com/carreira/metodologias-ageis/), usando o método kanban e o framework ![Scrum](https://blog.betrybe.com/carreira/metodologia-scrum/).
-- Apresentando como aplicações eram desenvolvidos antigamente(![cascata](https://blog.betrybe.com/tecnologia/modelo-cascata/)), que somente no final da produção, era apresentando algo para o cliente, gerando um grande retrabalho devido a essa falta de comunicação. E isso fez necessária a criação de principios para melhor eficiencia e produtividade(existem vários outros fora o kanban e o scrum).
+- Nessa seção fui introduzido o manifesto ágil e funcionamento de [metodologias Ágeis](https://blog.betrybe.com/carreira/metodologias-ageis/), usando o método kanban e o framework [Scrum](https://blog.betrybe.com/carreira/metodologia-scrum/).
+- Apresentando como aplicações eram desenvolvidos antigamente([cascata](https://blog.betrybe.com/tecnologia/modelo-cascata/)), que somente no final da produção, era apresentando algo para o cliente, gerando um grande retrabalho devido a essa falta de comunicação. E isso fez necessária a criação de principios para melhor eficiencia e produtividade(existem vários outros fora o kanban e o scrum).
 - A importancia dos princípios apresentados nessa seção foram de facilitar e agilizar os processo e entregas da equipe, sem gerar complexidade desnecessários.
 - Para tornar isso possivel o desenvolvimento foi segmentando em pequenos ciclos(sprints) que variam de tempo de 2 semanas há 4 semanas.
 #
