@@ -17,7 +17,7 @@
 >*clique na imagem para acesso online do projeto*
 #
 ## Projeto: `Frontend Store`
-- lore
+- Desenolvemos uma aplicação simulando um ecommerce, usando API do Mercado Livre, onde é possível filtrar o conteudo de busca, por categoria ou por nome, visualizar detalhes do produto, adicionar comentários avaliativos, adicionar ao carrinho e  acessar o carrinho, acessando ele é possivel alterar a quantidade dos itens no carrinho.
 
 # Tecnologias e ferramentas usadas 🛠
 
