@@ -26,11 +26,12 @@
 
 # Desafios
 
-- lore
+- Focamos no trabalho em equipe e aplicar as lições apresentadas na seção usando o agil, usamos o kanban para deixar nítida as atividades que faziamos de forma separada, mas inicialmente avaliamos os primeiros requisitos necessários e focamos em aprender juntos o material que iriamos usar, alimentando nossa aplicação com a API, e usando o localstorage para manter os dados que precisavamos salvar.
+- Analisamos quem do grupo estava com mais dificuldade, e dividimos em grupos menores visando mais produtividade no desenvolvimento, vimos quem sentia mais confortavel desenvolvendo, para ajudar na evolução da pessoa com mais dificuldade.
 
 # Conclusão
 
-- lore
+- Apesar de não ser a primeira atividade em grupo foi a primeira com mais de 1 intregante, foi muito bom nosso desenvolvimento os integrantes tinham a cabeça aberta para ideias, colaboratividade e transparentes com suas dificuldades.
 
 </details>
 
@@ -78,7 +79,22 @@
 </details>
 
 #
+## Membros:
 
+<div>
+  <a href="https://www.linkedin.com/in/brunolorenzonlouzada/">
+    <img src="https://badgen.net/badge/Linkedin/Bruno Louzada/blue" \>
+  <a href="https://www.linkedin.com/in/davidrogger">
+    <img src="https://badgen.net/badge/Linkedin/Davíd Roggér/blue" \>
+  <a href="https://www.linkedin.com/in/nelipefunes">
+    <img src="https://badgen.net/badge/Linkedin/Felipe Nunes/blue" \>
+  <a href="https://www.linkedin.com/in/jcoelhoo/">
+    <img src="https://badgen.net/badge/Linkedin/João Coelho/blue" \>
+  <a href="https://www.linkedin.com/in/rafaelqfg/">
+    <img src="https://badgen.net/badge/Linkedin/Rafael Godoy/blue" \>
+</div>
+
+#
 <div align="right">
   <img src="https://badgen.net/badge/last%20update/24-01-2023/blue">
 </div>
