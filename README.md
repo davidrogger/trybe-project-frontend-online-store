@@ -1,7 +1,8 @@
 # Sobre
 
 ## Seção: `Metodologias Ágeis`
-- lore
+- Nessa seção fui introduzido ao funcionamento de metodologias Ágeis, usando kanban e Scrum.
+- 
 #
 <div align="center">
   <a href="https://davidrogger.github.io/trybe-project-frontend-online-store">
@@ -42,7 +43,7 @@
 ### Requisitos
 *Nome* | *Avaliação*
 --- | :---:
-1 - lore | :heavy_check_mark:
+1 - Implemente o módulo de acesso à api do Mercado Livre | :heavy_check_mark:
 2 - Crie uma página de listagem de produtos vazia | :heavy_check_mark:
 3 - Crie a página do carrinho de compras| :heavy_check_mark:
 4 - Liste as categorias de produtos disponíveis via API na página principal | :heavy_check_mark:
