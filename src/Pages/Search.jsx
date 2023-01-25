@@ -22,7 +22,6 @@ class InputSearch extends Component {
       loadingSearch: false,
       searchInput: '',
       products: [],
-      categorySearched: [],
       categoryFilter: undefined,
     };
   }
@@ -34,17 +33,16 @@ class InputSearch extends Component {
   }
 
   applyCategoryFilter = (categoryFilter, id) => {
-    if (!categoryFilter) {
+    if (categoryFilter === id) {
       this.setState({
-        categoryFilter: id,
+        categoryFilter: undefined,
       });
-      return true;
+      return false;
     }
-
     this.setState({
-      categoryFilter: undefined,
+      categoryFilter: id,
     });
-    return false;
+    return true;
   }
 
   searchHandler = async (id) => {
@@ -57,11 +55,11 @@ class InputSearch extends Component {
       minTimeWait = 0;
       const response = await getProductsFromCategoryAndQuery(id);
       this.setState({
-        categorySearched: response.results,
+        products: response.results,
       });
     } else {
       this.setState({
-        categorySearched: [],
+        products: [],
       });
     }
     setTimeout(() => this.pageLoading(false), minTimeWait);
@@ -73,7 +71,7 @@ class InputSearch extends Component {
     });
   }
 
-  handleClick = async () => {
+  inputFilter = async () => {
     const { searchInput, categoryFilter } = this.state;
     this.pageLoading(true);
     const response = await getProductsFromCategoryAndQuery(categoryFilter, searchInput);
@@ -88,11 +86,8 @@ class InputSearch extends Component {
       loadingSearch,
       products,
       categoryFilter,
-      categorySearched,
     } = this.state;
     const { addToCart } = this.props;
-    const displaySearch = products.length === 0;
-    const selectedProducts = displaySearch ? categorySearched : products;
 
     return loadingSearch ? <Loading /> : (
       <div className="home-container">
@@ -111,14 +106,14 @@ class InputSearch extends Component {
             <button
               type="submit"
               data-testid="query-button"
-              onClick={ this.handleClick }
+              onClick={ this.inputFilter }
             >
               Pesquisar
             </button>
           </div>
 
           <SearchInput
-            products={ selectedProducts }
+            products={ products }
             addToCart={ addToCart }
           />
         </div>
