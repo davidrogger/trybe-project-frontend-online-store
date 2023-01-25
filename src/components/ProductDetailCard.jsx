@@ -9,17 +9,22 @@ class ProductDetailCard extends Component {
     const { product, addItem } = this.props;
     return (
       <div className="product-detail-card">
+
         <ImageDisplay pictures={ product.pictures } />
+
         <div className="info-container">
-          <div className="product-title">
+          <div className="product-title-container">
             <h2>{product.title}</h2>
           </div>
+
           <div className="product-delivery-info">
-            { `Frete ${product.shipping.free_shipping ? 'Grátis' : 'Pago'}` }
+            { `Envio: Frete ${product.shipping.free_shipping ? 'Grátis' : 'Pago'}` }
           </div>
+
           <div className="product-price">
             { `R$: ${product.price}` }
           </div>
+
           <div className="buy-product">
             <button
               type="button"
@@ -27,6 +32,7 @@ class ProductDetailCard extends Component {
             >
               Adicionar ao carrinho
             </button>
+
           </div>
           <div className="product-description">
             { product.description }

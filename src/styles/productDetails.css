@@ -34,18 +34,34 @@
 }
 
 .pictures-container {
+  align-items: center;
   background: pink;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.main-picture {
+  background: gray;
+  height: 80%;
 }
 
 .info-container {
   background: purple;
+  padding-inline: 20px;
 }
 
 .mini-pictures {
-  height: 20%;
+  height: 80px;
+  width: 100%;
 }
 
 .mini-pictures img {
   height: 100%;
+  margin: 5px;
   object-fit: cover;
+}
+
+.product-title-container {
+  margin: 15px 0;
 }
