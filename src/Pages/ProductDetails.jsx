@@ -10,6 +10,9 @@ import Forms from '../components/Forms';
 import DisplayReviews from '../components/DisplayReviews';
 import Loading from '../components/Loading';
 
+// Estilos
+import '../styles/productDetails.css';
+
 class ProductDetail extends Component {
   constructor(props) {
     super(props);
@@ -55,7 +58,7 @@ class ProductDetail extends Component {
     return productDetailLoading
       ? <Loading /> : (
         <>
-          <div className="productdetail-container">
+          <div className="product-detail-container">
             <h3 data-testid="product-detail-name">{title}</h3>
             <img src={ thumbnail } alt={ title } />
             <p>

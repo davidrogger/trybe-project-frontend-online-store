@@ -48,14 +48,6 @@
   margin-left: 10px;
 }
 
-.productdetail-container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin: 50px auto;
-  width: 100%;
-}
-
 .cartProductList-container {
   align-items: center;
   border-bottom: 1px solid #e6e6e6;
