@@ -29,10 +29,7 @@ class ProductDetailCard extends Component {
             </button>
           </div>
           <div className="product-description">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Cupiditate, impedit. Eligendi perspiciatis a cupiditate consequatur atque,
-            excepturi, illo harum numquam tempore amet assumenda. Accusantium, possimus
-            ducimus doloribus maiores repellendus nesciunt?
+            { product.description }
           </div>
         </div>
       </div>

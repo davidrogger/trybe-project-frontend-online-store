@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 // Serviços
-import { getProductsDetails } from '../services/api';
+import { getProductsDetails, getProductDescription } from '../services/api';
 
 // Componentes
 import Forms from '../components/Forms';
@@ -32,9 +32,13 @@ class ProductDetail extends Component {
 
   renderProductDetails = async () => {
     const { match: { params: { id } } } = this.props;
-    const productDetail = await getProductsDetails(id);
+    const [productDetail, description] = await Promise.all([
+      await getProductsDetails(id),
+      await getProductDescription(id),
+    ]);
+
     this.setState({
-      productDetail,
+      productDetail: { ...productDetail, description },
       productDetailLoading: false,
       productId: id,
       reloadReviewDisplay: true,

@@ -23,6 +23,13 @@ export async function getProductsDetails(id) {
   return data;
 }
 
+export async function getProductDescription(id) {
+  const url = `https://api.mercadolibre.com/items/${id}/description`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data.plain_text;
+}
+
 // Codigo Bruno
 // const url = `https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}&q=${query}`;
 // const response = await fetch(url);
