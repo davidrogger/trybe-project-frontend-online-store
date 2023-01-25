@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getCategories } from '../services/api';
 
+// Estilos
+import '../styles/category.css';
+
 class Category extends Component {
   constructor() {
     super();
