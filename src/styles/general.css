@@ -33,11 +33,14 @@
   cursor: pointer;
 }
 
+.default-category-btn, .selected-category-btn {
+  border: none;
+  padding: 10px;
+}
+
 .default-category-btn {
   background: var(--third-color);
-  border: none;
   color: var(--primary-color);
-  padding: 10px;
 }
 
 .search-input-container {

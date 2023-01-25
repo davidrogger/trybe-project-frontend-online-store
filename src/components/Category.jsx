@@ -15,7 +15,7 @@ class Category extends Component {
   }
 
   render() {
-    const { handleCategoryClick, cateogiryFilter } = this.props;
+    const { handleCategoryClick, categoryFilter } = this.props;
     const { categories } = this.state;
     return (
       <div className="category-container">
@@ -25,7 +25,7 @@ class Category extends Component {
             categories.map((category) => (
               <button
                 className={
-                  cateogiryFilter === category.id
+                  categoryFilter === category.id
                     ? 'selected-category-btn' : 'default-category-btn'
                 }
                 type="button"
@@ -34,6 +34,7 @@ class Category extends Component {
                 onClick={ () => handleCategoryClick(category.id) }
               >
                 {category.name}
+                {console.log(categoryFilter)}
               </button>
             ))
           }

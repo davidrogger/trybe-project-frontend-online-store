@@ -23,7 +23,7 @@ class InputSearch extends Component {
       searchInput: '',
       products: [],
       categorySearched: [],
-      cateogiryFilter: undefined,
+      categoryFilter: undefined,
     };
   }
 
@@ -38,7 +38,7 @@ class InputSearch extends Component {
     const response = await getProductsFromCategoryAndQuery(id);
     this.setState({
       categorySearched: response.results,
-      cateogiryFilter: id,
+      categoryFilter: id,
     });
     this.pageLoading(false);
   }
@@ -50,9 +50,9 @@ class InputSearch extends Component {
   }
 
   handleClick = async () => {
-    const { searchInput, cateogiryFilter } = this.state;
+    const { searchInput, categoryFilter } = this.state;
     this.pageLoading(true);
-    const response = await getProductsFromCategoryAndQuery(cateogiryFilter, searchInput);
+    const response = await getProductsFromCategoryAndQuery(categoryFilter, searchInput);
     this.setState({
       products: response.results,
     });
@@ -63,6 +63,7 @@ class InputSearch extends Component {
     const {
       loadingSearch,
       products,
+      categoryFilter,
       categorySearched,
     } = this.state;
     const { addToCart } = this.props;
@@ -73,7 +74,7 @@ class InputSearch extends Component {
       <div className="home-container">
         <Category
           handleCategoryClick={ this.handleCategoryClick }
-          cateogiryFilter={ this.cateogiryFilter }
+          categoryFilter={ categoryFilter }
         />
         <div className="side-container">
           <div className="search-input-container">

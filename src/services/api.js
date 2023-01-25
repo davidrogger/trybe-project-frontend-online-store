@@ -6,7 +6,6 @@ export async function getCategories() {
 }
 
 export async function getProductsFromCategoryAndQuery(categoryId, query) {
-  console.log(categoryId);
   let endPoint = categoryId ? `category=${categoryId}` : `q=${query}`;
 
   if (categoryId && query) endPoint = `category=${categoryId}&q=${query}`;
