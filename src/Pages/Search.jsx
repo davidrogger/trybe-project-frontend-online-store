@@ -33,14 +33,38 @@ class InputSearch extends Component {
     });
   }
 
-  handleCategoryClick = async (id) => {
-    this.pageLoading(true);
-    const response = await getProductsFromCategoryAndQuery(id);
+  applyCategoryFilter = (categoryFilter, id) => {
+    if (!categoryFilter) {
+      this.setState({
+        categoryFilter: id,
+      });
+      return true;
+    }
+
     this.setState({
-      categorySearched: response.results,
-      categoryFilter: id,
+      categoryFilter: undefined,
     });
-    this.pageLoading(false);
+    return false;
+  }
+
+  searchHandler = async (id) => {
+    const { categoryFilter } = this.state;
+    // eslint-disable-next-line no-magic-numbers
+    let minTimeWait = 500;
+    this.pageLoading(true);
+
+    if (this.applyCategoryFilter(categoryFilter, id)) {
+      minTimeWait = 0;
+      const response = await getProductsFromCategoryAndQuery(id);
+      this.setState({
+        categorySearched: response.results,
+      });
+    } else {
+      this.setState({
+        categorySearched: [],
+      });
+    }
+    setTimeout(() => this.pageLoading(false), minTimeWait);
   }
 
   handleChange = ({ target }) => {
@@ -73,7 +97,7 @@ class InputSearch extends Component {
     return loadingSearch ? <Loading /> : (
       <div className="home-container">
         <Category
-          handleCategoryClick={ this.handleCategoryClick }
+          handleCategoryClick={ this.searchHandler }
           categoryFilter={ categoryFilter }
         />
         <div className="side-container">
