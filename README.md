@@ -28,6 +28,7 @@
 
 - Focamos no trabalho em equipe e aplicar as lições apresentadas na seção usando o agil, usamos o kanban para deixar nítida as atividades que faziamos de forma separada, mas inicialmente avaliamos os primeiros requisitos necessários e focamos em aprender juntos o material que iriamos usar, alimentando nossa aplicação com a API, e usando o localstorage para manter os dados que precisavamos salvar.
 - Analisamos quem do grupo estava com mais dificuldade, e dividimos em grupos menores visando mais produtividade no desenvolvimento, vimos quem sentia mais confortavel desenvolvendo, para ajudar na evolução da pessoa com mais dificuldade.
+- Tecnicamente o maior problema que encontramos nesse projeto era de fornecer alguma informação entre os componentes, eramos limitados ao props drilling, passando o estado de um componente pai para um filho em forma de cascata, sendo algo bem confuso e com uma aparencia bagunçada, seções a frente aprendemos context api e redux, que resolvem esse problema.
 
 # Conclusão
 
