@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ProductCartItems from '../components/ProductCartItems';
 
+// Estilo
+import '../styles/productCart.css';
+
 class Cart extends Component {
   cartItensList = (items, handleQuantity) => (
     <ol className="cartList-container">
@@ -30,7 +33,7 @@ class Cart extends Component {
     const cartDisplay = cartItems.length === 0;
 
     return (
-      <div className="cartItens-container">
+      <div className="cart-itens-container">
         {cartDisplay
           ? emptyCart
           : (this.cartItensList(cartItems, handleQuantity))}
