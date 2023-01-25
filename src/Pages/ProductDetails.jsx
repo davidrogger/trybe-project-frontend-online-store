@@ -9,6 +9,7 @@ import { getProductsDetails } from '../services/api';
 import Forms from '../components/Forms';
 import DisplayReviews from '../components/DisplayReviews';
 import Loading from '../components/Loading';
+import ProductDetailCard from '../components/ProductDetailCard';
 
 // Estilos
 import '../styles/productDetails.css';
@@ -22,7 +23,6 @@ class ProductDetail extends Component {
       productDetail: {},
       productDetailLoading: true,
       productId: '',
-      freeShipping: false,
     };
   }
 
@@ -38,8 +38,6 @@ class ProductDetail extends Component {
       productDetailLoading: false,
       productId: id,
       reloadReviewDisplay: true,
-      freeShipping: productDetail.shipping.free_shipping,
-
     });
   }
 
@@ -52,30 +50,18 @@ class ProductDetail extends Component {
   }
 
   render() {
-    const { productDetail, productDetail: { title, thumbnail,
-      price }, productDetailLoading, productId,
-    reloadReviewDisplay, freeShipping } = this.state;
+    const { productDetail, productDetailLoading, productId,
+      reloadReviewDisplay } = this.state;
     const { addToCart } = this.props;
+
     return productDetailLoading
       ? <Loading /> : (
         <>
           <div className="product-detail-container">
-            <h3 data-testid="product-detail-name">{title}</h3>
-            <img src={ thumbnail } alt={ title } />
-            <p>
-              Preço:
-              {price}
-            </p>
-            { freeShipping
-              && (<span data-testid="free-shipping">Frete Grátis</span>)}
-            <button
-              data-testid="product-detail-add-to-cart"
-              type="button"
-              onClick={ () => addToCart(productDetail) }
-            >
-              Adicionar ao Carrinho
-
-            </button>
+            <ProductDetailCard
+              product={ productDetail }
+              addItem={ addToCart }
+            />
           </div>
           <Forms id={ productId } reloadingReview={ this.reloadingReview } />
           {!reloadReviewDisplay

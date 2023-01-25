@@ -5,3 +5,47 @@
   margin: 50px auto;
   width: 100%;
 }
+
+.product-detail-card {
+  display: flex;
+  flex-direction: row;
+  height: 75vh;
+  width: 90%;
+}
+
+.top-content, .bottom-content {
+  width: 100%;
+}
+
+.top-content {
+  background: orange;
+  display: flex;
+  height: 70%;
+}
+
+.bottom-content {
+  background: yellow;
+  height: 30%;
+}
+
+.pictures-container, .info-container {
+  height: 100%;
+  width: 50%;
+}
+
+.pictures-container {
+  background: pink;
+}
+
+.info-container {
+  background: purple;
+}
+
+.mini-pictures {
+  height: 20%;
+}
+
+.mini-pictures img {
+  height: 100%;
+  object-fit: cover;
+}
