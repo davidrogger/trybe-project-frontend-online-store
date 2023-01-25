@@ -33,7 +33,7 @@
   cursor: pointer;
 }
 
-.category-container button {
+.default-category-btn {
   background: var(--third-color);
   border: none;
   color: var(--primary-color);
@@ -74,7 +74,7 @@
   transform: translateY(1px);
 }
 
-.category-container button:active {
+.default-category-btn:active {
   cursor: wait;
   transform: translateX(1px);
 }
@@ -298,7 +298,7 @@
   width: 60px;
 }
 
-.category-container button:hover {
+.default-category-btn:hover, .selected-category-btn {
   background: var(--primary-color);
   color: var(--fourth-color);
 }

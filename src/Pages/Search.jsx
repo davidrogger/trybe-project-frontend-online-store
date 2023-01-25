@@ -59,6 +59,7 @@ class InputSearch extends Component {
       <div className="home-container">
         <Category
           handleCategoryClick={ this.handleCategoryClick }
+          cateogiryFilter={ this.cateogiryFilter }
         />
         <div className="side-container">
           <div className="search-input-container">

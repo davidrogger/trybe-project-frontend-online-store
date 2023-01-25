@@ -15,7 +15,7 @@ class Category extends Component {
   }
 
   render() {
-    const { handleCategoryClick } = this.props;
+    const { handleCategoryClick, cateogiryFilter } = this.props;
     const { categories } = this.state;
     return (
       <div className="category-container">
@@ -24,6 +24,10 @@ class Category extends Component {
           {
             categories.map((category) => (
               <button
+                className={
+                  cateogiryFilter === category.id
+                    ? 'selected-category-btn' : 'default-category-btn'
+                }
                 type="button"
                 key={ category.id }
                 data-testid="category"
