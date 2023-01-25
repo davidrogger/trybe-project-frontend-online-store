@@ -15,6 +15,7 @@
 }
 
 .home-container {
+  background: var(--third-color);
   display: flex;
   width: 100%;
 }
@@ -36,7 +37,6 @@
   background: var(--third-color);
   border: none;
   color: var(--primary-color);
-  opacity: 0.9;
   padding: 10px;
 }
 
@@ -67,6 +67,16 @@
   opacity: 0.9;
   padding: 10px;
   width: 100px;
+}
+
+.product-item button:active {
+  cursor: wait;
+  transform: translateY(1px);
+}
+
+.category-container button:active {
+  cursor: wait;
+  transform: translateX(1px);
 }
 
 .product-item button:hover {
@@ -289,5 +299,6 @@
 }
 
 .category-container button:hover {
-  opacity: 1;
+  background: var(--primary-color);
+  color: var(--fourth-color);
 }
