@@ -8,6 +8,7 @@ import { getProductsDetails } from '../services/api';
 // Componentes
 import Forms from '../components/Forms';
 import DisplayReviews from '../components/DisplayReviews';
+import Loading from '../components/Loading';
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -52,7 +53,7 @@ class ProductDetail extends Component {
     reloadReviewDisplay, freeShipping } = this.state;
     const { addToCart } = this.props;
     return productDetailLoading
-      ? <p>Carregando</p> : (
+      ? <Loading /> : (
         <>
           <div className="productdetail-container">
             <h3 data-testid="product-detail-name">{title}</h3>

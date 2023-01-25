@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 // import { getProductsDetails } from '../services/api';
 
+// Estilo
+import '../styles/productCard.css';
+
 class ProductCard extends Component {
   render() {
     const { productDetails, addToCart } = this.props;

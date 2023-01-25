@@ -7,11 +7,6 @@ import SearchInput from '../components/SearchInput';
 import Category from '../components/Category';
 import Loading from '../components/Loading';
 
-// Paginas
-
-// Estilo
-import '../styles/general.css';
-
 // Funçôes
 import { getProductsFromCategoryAndQuery } from '../services/api';
 

@@ -6,6 +6,9 @@ import CartPage from './Pages/Cart';
 import ProductDetailsPage from './Pages/ProductDetails';
 import { addCartInStorage, readCartInStorage } from './services/localStorage';
 
+// Estilo
+import './styles/general.css';
+
 class App extends Component {
   constructor(props) {
     super(props);
