@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 // Componentes
-import Search from '../components/SearchInput';
+import SearchInput from '../components/SearchInput';
 import Category from '../components/Category';
+import Loading from '../components/Loading';
 
 // Paginas
 
@@ -18,6 +19,7 @@ class InputSearch extends Component {
   constructor() {
     super();
     this.state = {
+      loadingSearch: false,
       searchInput: '',
       products: [],
       categorySearched: [],
@@ -25,12 +27,20 @@ class InputSearch extends Component {
     };
   }
 
+  pageLoading = (state) => {
+    this.setState({
+      loadingSearch: state,
+    });
+  }
+
   handleCategoryClick = async (id) => {
+    this.pageLoading(true);
     const response = await getProductsFromCategoryAndQuery(id);
     this.setState({
       categorySearched: response.results,
       cateogiryFilter: id,
     });
+    this.pageLoading(false);
   }
 
   handleChange = ({ target }) => {
@@ -41,21 +51,25 @@ class InputSearch extends Component {
 
   handleClick = async () => {
     const { searchInput, cateogiryFilter } = this.state;
+    this.pageLoading(true);
     const response = await getProductsFromCategoryAndQuery(cateogiryFilter, searchInput);
     this.setState({
       products: response.results,
     });
+    this.pageLoading(false);
   }
 
   render() {
     const {
+      loadingSearch,
       products,
       categorySearched,
     } = this.state;
     const { addToCart } = this.props;
     const displaySearch = products.length === 0;
     const selectedProducts = displaySearch ? categorySearched : products;
-    return (
+
+    return loadingSearch ? <Loading /> : (
       <div className="home-container">
         <Category
           handleCategoryClick={ this.handleCategoryClick }
@@ -78,7 +92,7 @@ class InputSearch extends Component {
             </button>
           </div>
 
-          <Search
+          <SearchInput
             products={ selectedProducts }
             addToCart={ addToCart }
           />
