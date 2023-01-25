@@ -1,0 +1,12 @@
+.forms-review-container, .displayReview-container {
+  margin: 50px 0;
+}
+
+.displayReview-container {
+  background: antiquevar(--forth-color);
+  width: 100%;
+}
+
+.reviewcard-container {
+  border-top: 1px solid black;
+}

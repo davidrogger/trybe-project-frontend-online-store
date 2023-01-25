@@ -12,6 +12,7 @@ import Loading from '../components/Loading';
 
 // Estilos
 import '../styles/productDetails.css';
+import '../styles/review.css';
 
 class ProductDetail extends Component {
   constructor(props) {
