@@ -41,7 +41,7 @@ class Cart extends Component {
     return JSON.parse(localStorage.getItem('orders') || '[]');
   }
 
-  cartItensList = (items, handleQuantity) => (
+  cartItensList = (items) => (
     <div className="cartList-container">
       <ol className="">
         {items.map(({ productData, productQt }, index) => (
@@ -53,7 +53,7 @@ class Cart extends Component {
             availableQt={ productData.available_quantity }
             productQt={ productQt }
             index={ index }
-            handleQuantity={ handleQuantity }
+            handleQuantity={ this.handleQuantity }
             removeProduct={ this.removeProduct }
             cart
           />
@@ -118,8 +118,24 @@ class Cart extends Component {
     history.push(`/order/${id}`);
   }
 
+  handleQuantity = (index, operator) => {
+    const { cartItems } = this.state;
+    const { cartWeight } = this.props;
+
+    const { productQt } = cartItems[index];
+    if (operator === 'increase') {
+      cartItems[index].productQt = productQt + 1;
+    }
+    if (operator === 'decrease') {
+      cartItems[index].productQt = productQt - 1;
+    }
+    console.log(cartItems);
+    addCartInStorage(cartItems);
+    this.setState({ cartItems });
+    cartWeight();
+  }
+
   render() {
-    const { handleQuantity } = this.props;
     const { reloadCart, cartItems } = this.state;
 
     const emptyCart = (
@@ -133,14 +149,17 @@ class Cart extends Component {
       <div className="cart-itens-container">
         {cartDisplay
           ? emptyCart
-          : (this.cartItensList(cartItems, handleQuantity))}
+          : (this.cartItensList(cartItems))}
       </div>
     );
   }
 }
 
 Cart.propTypes = {
-  cartItems: PropTypes.array,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+  cartWeight: PropTypes.func,
 }.isRequired;
 
 export default Cart;
