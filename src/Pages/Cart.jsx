@@ -12,6 +12,15 @@ class Cart extends Component {
       .toFixed(2);
   }
 
+  getNewId() {
+    const radix = 36;
+    return Date.now().toString(radix).toUpperCase();
+  }
+
+  getOrderHistory() {
+    return JSON.parse(localStorage.getItem('orders') || '[]');
+  }
+
   cartItensList = (items, handleQuantity) => (
     <div className="cartList-container">
       <ol className="">
@@ -38,11 +47,37 @@ class Cart extends Component {
         <button
           className="checkout-btn default-button-hover default-click-button-effect"
           type="button"
+          onClick={ () => this.checkout(items) }
         >
           Finalizar Compra
         </button>
       </div>
     </div>)
+
+  saveNewOrder(orders, newOrder) {
+    localStorage.setItem('orders', JSON.stringify([...orders, newOrder]));
+  }
+
+  checkout(items) {
+    const { history } = this.props;
+    const total = this.getTotalCart(items);
+    const id = this.getNewId();
+    const newOrder = {
+      id,
+      products: items,
+      total,
+    };
+
+    const orders = this.getOrderHistory();
+
+    if (orders.length === 0) {
+      localStorage.setItem('orders', '[]');
+    }
+
+    this.saveNewOrder(orders, newOrder);
+
+    history.push(`/order/${id}`);
+  }
 
   render() {
     const { cartItems, handleQuantity } = this.props;

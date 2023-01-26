@@ -8,6 +8,7 @@ import { addCartInStorage, readCartInStorage } from './services/localStorage';
 
 // Estilo
 import './styles/general.css';
+import Order from './Pages/Order';
 
 class App extends Component {
   constructor(props) {
@@ -76,6 +77,14 @@ class App extends Component {
             render={ (props) => (<ProductDetailsPage
               { ...props }
               addToCart={ this.addToCart }
+            />) }
+          />
+
+          <Route
+            exact
+            path="/order/:id"
+            render={ (props) => (<Order
+              { ...props }
             />) }
           />
 
