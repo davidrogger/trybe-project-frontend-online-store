@@ -106,3 +106,16 @@
   margin: 10px;
   width: 130px;
 }
+
+.cart-remove-btn {
+  margin: 5px;
+  opacity: 0.5;
+}
+
+.cart-remove-btn:hover {
+  opacity: 1;
+}
+
+.cart-remove-btn:active {
+  transform: translateY(1px);
+}

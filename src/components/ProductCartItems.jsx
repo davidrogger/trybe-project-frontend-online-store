@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { Trash } from 'phosphor-react';
+
 class ProductCartItems extends Component {
   render() {
     const { title, price, thumbnail, productQt, index,
-      handleQuantity, availableQt, order = false } = this.props;
+      handleQuantity, availableQt, order = false, cart = false } = this.props;
 
     return (
       <li className="cartProductList-container">
@@ -38,6 +40,16 @@ class ProductCartItems extends Component {
 
         </div>
         <span className="product-price">{`R$: ${(price * productQt).toFixed(2)}`}</span>
+
+        {cart
+          && (
+            <Trash
+              className="cart-remove-btn"
+              size={ 25 }
+              color="red"
+              onClick={ () => console.log('removeu') }
+            />
+          )}
       </li>
     );
   }

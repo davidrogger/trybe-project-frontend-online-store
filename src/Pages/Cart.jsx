@@ -34,6 +34,7 @@ class Cart extends Component {
             productQt={ productQt }
             index={ index }
             handleQuantity={ handleQuantity }
+            cart
           />
         ))}
       </ol>
