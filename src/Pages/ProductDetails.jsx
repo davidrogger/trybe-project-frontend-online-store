@@ -6,14 +6,14 @@ import PropTypes from 'prop-types';
 import { getProductsDetails, getProductDescription } from '../services/api';
 
 // Componentes
-import Forms from '../components/Forms';
+import ReviewForms from '../components/ReviewForms';
 import DisplayReviews from '../components/DisplayReviews';
 import Loading from '../components/Loading';
 import ProductDetailCard from '../components/ProductDetailCard';
 
 // Estilos
 import '../styles/productDetails.css';
-import '../styles/review.css';
+import '../styles/reviewForms.css';
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -67,10 +67,12 @@ class ProductDetail extends Component {
               addItem={ addToCart }
             />
           </div>
-          <Forms id={ productId } reloadingReview={ this.reloadingReview } />
-          {!reloadReviewDisplay
-            ? <p>Carregando</p>
-            : <DisplayReviews />}
+          <div className="review-container">
+            <ReviewForms id={ productId } reloadingReview={ this.reloadingReview } />
+            {!reloadReviewDisplay
+              ? <p>Carregando</p>
+              : <DisplayReviews />}
+          </div>
         </>
       );
   }

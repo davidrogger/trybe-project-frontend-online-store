@@ -1,0 +1,73 @@
+.review-container {
+  align-items: center;
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.forms-review-container, .displayReview-container {
+  margin: 50px 0;
+}
+
+.displayReview-container {
+  background: antiquevar(--forth-color);
+  width: 100%;
+}
+
+.reviewcard-container {
+  border-top: 1px solid black;
+}
+
+.forms-review-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 90%;
+}
+
+.forms-review-container h3 {
+  margin: 10px;
+}
+
+.forms-review-container form > * {
+  margin-bottom: 20px;
+}
+
+.forms-review-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-review-msg textarea {
+  height: 80px;
+  margin-right: 10px;
+  resize: none;
+  width: 80%;
+}
+
+.form-review-msg button {
+  background: var(--primary-color);
+  border: none;
+  border-radius: 0 20px 20px 0;
+  color: var(--forth-color);
+  opacity: 0.9;
+  width: 20%;
+}
+
+.email-input {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.email-input input {
+  height: 40px;
+  margin-left: 10px;
+  padding-left: 10px;
+  width: 50%;
+}
+
+.form-review-msg {
+  display: flex;
+}

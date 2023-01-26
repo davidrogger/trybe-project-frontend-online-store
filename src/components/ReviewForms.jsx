@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // Serviços
 import { addReview } from '../services/localStorage';
 
-class Forms extends Component {
+class ReviewForms extends Component {
   constructor() {
     super();
     this.state = {
@@ -79,46 +79,55 @@ createRadioButton = (arr, formState) => (
 render() {
   const { reviews } = this.state;
   return (
-    <form className="forms-review-container">
-      <label htmlFor="email-input">
-        E-mail:
-        <input
-          data-testid="product-detail-email"
-          type="email"
-          name="email"
-          id="email-input"
-          placeholder="digite seu e-mail"
-          value={ reviews.email }
-          required
-          onChange={ this.stateUpdate }
-        />
-      </label>
+    <div className="forms-review-container default-shadown-card">
+      <h3>Deixe sua avaliação!</h3>
+      <form>
+        <label
+          className="email-input"
+          htmlFor="email-input"
+        >
+          E-mail:
+          <input
+            data-testid="product-detail-email"
+            type="email"
+            name="email"
+            id="email-input"
+            placeholder="digite seu e-mail"
+            value={ reviews.email }
+            required
+            onChange={ this.stateUpdate }
+          />
+        </label>
 
-      {this.createRadioButton(['1', '2', '3', '4', '5'], reviews)}
+        {this.createRadioButton(['1', '2', '3', '4', '5'], reviews)}
 
-      <textarea
-        data-testid="product-detail-evaluation"
-        name="review"
-        value={ reviews.review }
-        onChange={ this.stateUpdate }
-      />
+        <div className="form-review-msg">
+          <textarea
+            data-testid="product-detail-evaluation"
+            name="review"
+            value={ reviews.review }
+            onChange={ this.stateUpdate }
+          />
 
-      <button
-        onClick={ (event) => this.submitBtn(event, reviews) }
-        data-testid="submit-review-btn"
-        type="submit"
-      >
-        Enviar sua avaliação
+          <button
+            className="default-button-hover default-click-button-effect"
+            onClick={ (event) => this.submitBtn(event, reviews) }
+            data-testid="submit-review-btn"
+            type="submit"
+          >
+            Enviar sua avaliação
 
-      </button>
-    </form>
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 }
 
-export default Forms;
+export default ReviewForms;
 
-Forms.propTypes = {
+ReviewForms.propTypes = {
   id: PropTypes.string,
   submitBtn: PropTypes.func,
 }.isRequired;
