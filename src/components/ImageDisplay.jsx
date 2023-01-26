@@ -19,6 +19,12 @@ class ImageDisplay extends Component {
     });
   }
 
+  setMainPicture(url) {
+    this.setState({
+      picture: url,
+    });
+  }
+
   render() {
     const { pictures } = this.props;
     const { picture } = this.state;
@@ -28,7 +34,12 @@ class ImageDisplay extends Component {
       <div className="pictures-container">
         <div className="mini-pictures">
           {pictures.filter((_, index) => index < thumbQuantity).map(({ id, url }) => (
-            <img key={ id } src={ url } alt={ url } />
+            <img
+              key={ id }
+              src={ url }
+              alt={ url }
+              onMouseEnter={ () => this.setMainPicture(url) }
+            />
           ))}
         </div>
         <div className="main-picture">
