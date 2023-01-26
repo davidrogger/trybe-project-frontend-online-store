@@ -6,6 +6,12 @@ import ProductCartItems from '../components/ProductCartItems';
 import '../styles/productCart.css';
 
 class Cart extends Component {
+  getTotalCart(items) {
+    return items
+      .reduce((total, { productData }) => total + Number(productData.price), 0)
+      .toFixed(2);
+  }
+
   cartItensList = (items, handleQuantity) => (
     <div className="cartList-container">
       <ol className="">
@@ -22,12 +28,20 @@ class Cart extends Component {
           />
         ))}
       </ol>
-      <button
-        className="checkout-btn default-button-hover default-click-button-effect"
-        type="button"
-      >
-        Finalizar Compra
-      </button>
+      <div className="checkout-container">
+        <div className="total-container">
+          <h2>Total:</h2>
+          <span>
+            {`R$: ${this.getTotalCart(items)}`}
+          </span>
+        </div>
+        <button
+          className="checkout-btn default-button-hover default-click-button-effect"
+          type="button"
+        >
+          Finalizar Compra
+        </button>
+      </div>
     </div>)
 
   render() {
