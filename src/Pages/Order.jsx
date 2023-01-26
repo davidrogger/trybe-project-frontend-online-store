@@ -16,8 +16,10 @@ class Order extends Component {
   }
 
   componentDidMount() {
-    const { match: { params: { id } } } = this.props;
+    const { match: { params: { id } }, history } = this.props;
     const order = this.getOrderData(id);
+
+    if (!order) return history.push('/pagenotfound');
 
     this.setState({
       order,
@@ -42,7 +44,7 @@ class Order extends Component {
 
     return loadingPage
       ? <Loading />
-      : <OrderCard order={ order } />;
+      : order && <OrderCard order={ order } />;
   }
 }
 
