@@ -2,10 +2,30 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ProductCartItems from '../components/ProductCartItems';
 
+import { addCartInStorage, readCartInStorage } from '../services/localStorage';
+
 // Estilo
 import '../styles/productCart.css';
+import Loading from '../components/Loading';
 
 class Cart extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      cartItems: [],
+      reloadCart: false,
+    };
+  }
+
+  componentDidMount() {
+    const cartItems = readCartInStorage();
+
+    this.setState({
+      cartItems,
+    });
+  }
+
   getTotalCart(items) {
     return items
       .reduce((total, { productData }) => total + Number(productData.price), 0)
@@ -34,6 +54,7 @@ class Cart extends Component {
             productQt={ productQt }
             index={ index }
             handleQuantity={ handleQuantity }
+            removeProduct={ this.removeProduct }
             cart
           />
         ))}
@@ -55,11 +76,28 @@ class Cart extends Component {
       </div>
     </div>)
 
-  saveNewOrder(orders, newOrder) {
+  loading = (state) => {
+    this.setState({
+      reloadCart: state,
+    });
+  }
+
+  removeProduct = (removeIndex) => {
+    const { cartWeight } = this.props;
+    const productsCart = readCartInStorage();
+    const updateCart = productsCart.filter((_, index) => index !== removeIndex);
+    addCartInStorage(updateCart);
+    this.setState({
+      cartItems: updateCart,
+    });
+    cartWeight();
+  }
+
+  saveNewOrder = (orders, newOrder) => {
     localStorage.setItem('orders', JSON.stringify([...orders, newOrder]));
   }
 
-  checkout(items) {
+  checkout = (items) => {
     const { history } = this.props;
     const total = this.getTotalCart(items);
     const id = this.getNewId();
@@ -81,7 +119,8 @@ class Cart extends Component {
   }
 
   render() {
-    const { cartItems, handleQuantity } = this.props;
+    const { handleQuantity } = this.props;
+    const { reloadCart, cartItems } = this.state;
 
     const emptyCart = (
       <p data-testid="shopping-cart-empty-message">
@@ -90,7 +129,7 @@ class Cart extends Component {
 
     const cartDisplay = cartItems.length === 0;
 
-    return (
+    return reloadCart ? <Loading /> : (
       <div className="cart-itens-container">
         {cartDisplay
           ? emptyCart

@@ -94,6 +94,7 @@ class App extends Component {
             render={ (props) => (<CartPage
               { ...props }
               cartItems={ cartItems }
+              cartWeight={ this.cartWeight }
               handleQuantity={ this.handleQuantity }
             />) }
           />

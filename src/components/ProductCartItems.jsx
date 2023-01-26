@@ -1,12 +1,13 @@
+// Bibliotecas
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { Trash } from 'phosphor-react';
 
 class ProductCartItems extends Component {
   render() {
     const { title, price, thumbnail, productQt, index,
-      handleQuantity, availableQt, order = false, cart = false } = this.props;
+      handleQuantity, availableQt, order = false, cart = false, removeProduct,
+    } = this.props;
 
     return (
       <li className="cartProductList-container">
@@ -47,7 +48,7 @@ class ProductCartItems extends Component {
               className="cart-remove-btn"
               size={ 25 }
               color="red"
-              onClick={ () => console.log('removeu') }
+              onClick={ () => removeProduct(index) }
             />
           )}
       </li>
