@@ -42,7 +42,7 @@
 }
 
 .main-picture img {
-  max-height: 500px;
+  height: 500px;
   object-fit: contain;
   width: 100%;
 }
