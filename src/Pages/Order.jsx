@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 // Componentes
 import Loading from '../components/Loading';
@@ -44,5 +45,13 @@ class Order extends Component {
       : <OrderCard order={ order } />;
   }
 }
+
+Order.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }),
+}.isRequired;
 
 export default Order;
