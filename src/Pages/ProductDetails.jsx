@@ -71,7 +71,7 @@ class ProductDetail extends Component {
             <ReviewForms id={ productId } reloadingReview={ this.reloadingReview } />
             {!reloadReviewDisplay
               ? <p>Carregando</p>
-              : <DisplayReviews />}
+              : <DisplayReviews productId={ productId } />}
           </div>
         </>
       );
