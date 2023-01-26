@@ -37,7 +37,6 @@
   box-sizing: border-box;
   display: flex;
   height: 100%;
-  width: 80%;
 }
 
 .cartProduct-img-title-container img {
@@ -46,6 +45,7 @@
 
 .cartProduct-img-title-container p {
   margin: 0 10px;
+  max-width: 300px;
 }
 
 @media ( max-width : 500px ) {
@@ -64,6 +64,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  max-width: 700px;
   width: 90%;
 }
 
@@ -73,7 +74,6 @@
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  margin-right: 30px;
   padding: 10px;
   width: 60px;
 }
@@ -96,4 +96,9 @@
 .total-container span {
   align-self: flex-end;
   margin-bottom: 5px;
+}
+
+.product-price {
+  margin: 10px;
+  width: 130px;
 }

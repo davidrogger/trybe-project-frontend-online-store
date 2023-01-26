@@ -33,7 +33,7 @@ class ProductCartItems extends Component {
           </button>
 
         </div>
-        <span>{`R$: ${(price * productQt).toFixed(2)}`}</span>
+        <span className="product-price">{`R$: ${(price * productQt).toFixed(2)}`}</span>
       </li>
     );
   }
