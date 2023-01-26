@@ -10,22 +10,21 @@ class ProductDetailCard extends Component {
     return (
       <div className="product-detail-card">
 
-        <ImageDisplay pictures={ product.pictures } />
+        <div className="top-container">
+          <ImageDisplay pictures={ product.pictures } />
 
-        <div className="info-container">
-          <div className="product-title-container">
+          <div className="info-container">
+
             <h2>{product.title}</h2>
-          </div>
 
-          <div className="product-delivery-info">
-            { `Envio: Frete ${product.shipping.free_shipping ? 'Grátis' : 'Pago'}` }
-          </div>
+            <div className="product-delivery-info">
+              { `Envio: Frete ${product.shipping.free_shipping ? 'Grátis' : 'Pago'}` }
+            </div>
 
-          <div className="product-price">
-            { `R$: ${product.price}` }
-          </div>
+            <div className="product-price">
+              { `R$: ${product.price}` }
+            </div>
 
-          <div className="buy-product">
             <button
               type="button"
               onClick={ () => addItem(product) }
@@ -34,9 +33,16 @@ class ProductDetailCard extends Component {
             </button>
 
           </div>
-          <div className="product-description">
-            { product.description }
-          </div>
+        </div>
+        <div className="product-description">
+          <h3>Descrição:</h3>
+          <p>
+            {
+              product.description.length > 0
+                ? product.description
+                : 'Produto sem descrição'
+            }
+          </p>
         </div>
       </div>
     );

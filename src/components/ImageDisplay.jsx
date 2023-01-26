@@ -22,18 +22,20 @@ class ImageDisplay extends Component {
   render() {
     const { pictures } = this.props;
     const { picture } = this.state;
+    const thumbQuantity = 5;
+
     return (
       <div className="pictures-container">
+        <div className="mini-pictures">
+          {pictures.filter((_, index) => index < thumbQuantity).map(({ id, url }) => (
+            <img key={ id } src={ url } alt={ url } />
+          ))}
+        </div>
         <div className="main-picture">
           <img
             src={ picture }
             alt=""
           />
-        </div>
-        <div className="mini-pictures">
-          {pictures.map(({ id, url }) => (
-            <img key={ id } src={ url } alt={ url } />
-          ))}
         </div>
       </div>
     );
