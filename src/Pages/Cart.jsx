@@ -7,20 +7,28 @@ import '../styles/productCart.css';
 
 class Cart extends Component {
   cartItensList = (items, handleQuantity) => (
-    <ol className="cartList-container">
-      {items.map(({ productData, productQt }, index) => (
-        <ProductCartItems
-          key={ productData.id }
-          title={ productData.title }
-          thumbnail={ productData.thumbnail }
-          price={ productData.price }
-          availableQt={ productData.available_quantity }
-          productQt={ productQt }
-          index={ index }
-          handleQuantity={ handleQuantity }
-        />
-      ))}
-    </ol>);
+    <div className="cartList-container">
+      <ol className="">
+        {items.map(({ productData, productQt }, index) => (
+          <ProductCartItems
+            key={ productData.id }
+            title={ productData.title }
+            thumbnail={ productData.thumbnail }
+            price={ productData.price }
+            availableQt={ productData.available_quantity }
+            productQt={ productQt }
+            index={ index }
+            handleQuantity={ handleQuantity }
+          />
+        ))}
+      </ol>
+      <button
+        className="checkout-btn default-button-hover default-click-button-effect"
+        type="button"
+      >
+        Finalizar Compra
+      </button>
+    </div>)
 
   render() {
     const { cartItems, handleQuantity } = this.props;
