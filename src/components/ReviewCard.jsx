@@ -6,10 +6,18 @@ class ReviewCard extends Component {
   render() {
     const { review: { email, productRating, review } } = this.props;
     return (
-      <div className="reviewcard-container">
-        <p>{email}</p>
-        <p>{productRating}</p>
-        {review}
+      <div className="product-review default-shadown-card">
+        <div className="review-left-side">
+          <p>{email}</p>
+        </div>
+        <div className="review-right-side">
+          <div className="rating-container">
+            {productRating}
+          </div>
+          <p>
+            {review}
+          </p>
+        </div>
       </div>
     );
   }

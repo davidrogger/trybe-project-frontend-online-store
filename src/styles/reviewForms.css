@@ -9,9 +9,35 @@
   margin: 50px 0;
 }
 
-.displayReview-container {
-  background: antiquevar(--forth-color);
+.review-history-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
   width: 100%;
+}
+
+.product-review {
+  display: flex;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 90%;
+}
+
+.review-left-side {
+  width: 30%;
+}
+
+.review-right-side {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  width: 70%;
+}
+
+.review-right-side > * {
+  align-self: flex-end;
+  margin-bottom: 10px;
 }
 
 .reviewcard-container {

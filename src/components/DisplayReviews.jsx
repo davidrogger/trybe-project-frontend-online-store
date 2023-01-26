@@ -36,7 +36,7 @@ class DisplayReviews extends Component {
     const { reviewsList } = this.state;
 
     return (
-      <div className="displayReview-container">
+      <div className="review-history-container">
         {reviewsList.map((review, index) => (
           <ReviewCard key={ index } review={ review } />
         ))}
