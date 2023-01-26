@@ -23,8 +23,10 @@ class OrderCard extends Component {
             />
           ))}
         </ol>
-        <h2>Total:</h2>
-        <span>{order.total}</span>
+        <footer>
+          <h2>Total:</h2>
+          <span>{ `R$: ${order.total}`}</span>
+        </footer>
       </div>
     );
   }
