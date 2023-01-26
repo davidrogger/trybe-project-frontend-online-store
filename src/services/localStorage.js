@@ -27,3 +27,7 @@ export const addCartInStorage = (cartItems) => {
   // const prevCart = readCartInStorage();
   localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(cartItems));
 };
+
+export const cleanCartInStorage = () => {
+  localStorage.setItem(CART_ITEMS_KEY, '[]');
+};

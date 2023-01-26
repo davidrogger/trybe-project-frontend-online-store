@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ProductCartItems from '../components/ProductCartItems';
 
-import { addCartInStorage, readCartInStorage } from '../services/localStorage';
+import {
+  addCartInStorage, readCartInStorage, cleanCartInStorage,
+} from '../services/localStorage';
 
 // Estilo
 import '../styles/productCart.css';
@@ -98,7 +100,7 @@ class Cart extends Component {
   }
 
   checkout = (items) => {
-    const { history } = this.props;
+    const { history, cartWeight } = this.props;
     const total = this.getTotalCart(items);
     const id = this.getNewId();
     const newOrder = {
@@ -114,6 +116,8 @@ class Cart extends Component {
     }
 
     this.saveNewOrder(orders, newOrder);
+    cleanCartInStorage();
+    cartWeight();
 
     history.push(`/order/${id}`);
   }
