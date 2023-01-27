@@ -1,0 +1,23 @@
+.horizontal-bar {
+  animation: progress 3s infinite linear;
+  background: white;
+  height: 3px;
+  transform-origin: left;
+}
+
+@keyframes progress {
+
+  0% {
+    transform: scaleX(0.1);
+  }
+
+  50% {
+    background: var(--secondary-color);
+    transform: scaleX(1);
+  }
+
+  100% {
+    background: var(--secondary-color);
+    transform: scaleX(0.1);
+  }
+}
