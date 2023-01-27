@@ -28,11 +28,16 @@
   box-sizing: border-box;
 }
 
-.default-button-hover:hover {
+.default-button-hover:hover:enabled {
   opacity: 1;
 }
 
-.default-click-button-effect:active {
+.default-click-button-effect:active:enabled {
   cursor: wait;
   transform: translateY(1px);
+}
+
+.default-button-disable:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
 }

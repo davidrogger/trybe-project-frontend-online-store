@@ -17,6 +17,7 @@ class ReviewForms extends Component {
         productRating: 0,
         review: '',
         productId: '',
+        isFilled: false,
       },
     };
   }
@@ -31,6 +32,13 @@ class ReviewForms extends Component {
     }));
   }
 
+  checkForms = (reviews) => {
+    const checkTextBox = ['email', 'review']
+      .every((field) => reviews[field].length >= 1);
+    const checkRating = reviews.productRating > 0;
+    return checkTextBox && checkRating;
+  }
+
   cleanInputForms = () => {
     this.setState(({ reviews: { productId } }) => ({
       reviews: {
@@ -38,6 +46,7 @@ class ReviewForms extends Component {
         productRating: 0,
         review: '',
         productId,
+        isFilled: false,
       },
     }));
   }
@@ -52,11 +61,11 @@ class ReviewForms extends Component {
 
 reviewUpdated = ({ target }) => {
   const { name, value } = target;
-  console.log({ ...target });
   this.setState((prevState) => ({
     reviews: {
       ...prevState.reviews,
       [name]: value,
+      isFilled: this.checkForms({ ...prevState.reviews, [name]: value }),
     },
   }));
 }
@@ -101,10 +110,12 @@ render() {
           />
 
           <button
-            className="default-button-hover default-click-button-effect"
+            className="
+            default-button-hover default-click-button-effect default-button-disable"
             onClick={ (event) => this.submitBtn(event, reviews) }
             data-testid="submit-review-btn"
             type="submit"
+            disabled={ !reviews.isFilled }
           >
             Enviar sua avaliação
 
