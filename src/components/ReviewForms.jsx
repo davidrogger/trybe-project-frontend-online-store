@@ -51,12 +51,13 @@ class ReviewForms extends Component {
     }));
   }
 
-  submitBtn = (event, review) => {
+  submitBtn = async (event, review) => {
     const { reloadingReview } = this.props;
     event.preventDefault();
     addReview(review);
     this.cleanInputForms();
-    reloadingReview();
+    await reloadingReview();
+    this.scrollToBottom();
   }
 
 reviewUpdated = ({ target }) => {
@@ -68,6 +69,10 @@ reviewUpdated = ({ target }) => {
       isFilled: this.checkForms({ ...prevState.reviews, [name]: value }),
     },
   }));
+}
+
+scrollToBottom() {
+  window.scrollTo(0, document.body.scrollHeight);
 }
 
 render() {
