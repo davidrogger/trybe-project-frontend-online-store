@@ -32,14 +32,14 @@ class ReviewForms extends Component {
   }
 
   cleanInputForms = () => {
-    this.setState({
+    this.setState(({ reviews: { productId } }) => ({
       reviews: {
         email: '',
-        productRating: '',
+        productRating: 0,
         review: '',
-        productId: '',
+        productId,
       },
-    });
+    }));
   }
 
   submitBtn = (event, review) => {
@@ -50,8 +50,9 @@ class ReviewForms extends Component {
     reloadingReview();
   }
 
-stateUpdate = ({ target }) => {
+reviewUpdated = ({ target }) => {
   const { name, value } = target;
+  console.log({ ...target });
   this.setState((prevState) => ({
     reviews: {
       ...prevState.reviews,
@@ -60,27 +61,10 @@ stateUpdate = ({ target }) => {
   }));
 }
 
-createRadioButton = (arr, formState) => (
-  <div>
-    {arr.map((rating) => (
-      <label htmlFor={ rating } key={ rating }>
-        <input
-          data-testid={ `${rating}-rating` }
-          type="radio"
-          name="productRating"
-          id={ rating }
-          checked={ formState.productRating === rating }
-          onChange={ this.stateUpdate }
-          value={ rating }
-        />
-        {rating}
-      </label>
-    ))}
-  </div>
-)
-
 render() {
   const { reviews } = this.state;
+  const { ratingValues } = this.props;
+
   return (
     <div className="forms-review-container default-shadown-card">
       <h3>Deixe sua avaliação!</h3>
@@ -98,20 +82,22 @@ render() {
             placeholder="digite seu e-mail"
             value={ reviews.email }
             required
-            onChange={ this.stateUpdate }
+            onChange={ this.reviewUpdated }
           />
         </label>
 
-        <StarSelection />
-
-        {this.createRadioButton(['1', '2', '3', '4', '5'], reviews)}
+        <StarSelection
+          ratingValues={ ratingValues }
+          productRating={ reviews.productRating }
+          reviewUpdated={ this.reviewUpdated }
+        />
 
         <div className="form-review-msg">
           <textarea
             data-testid="product-detail-evaluation"
             name="review"
             value={ reviews.review }
-            onChange={ this.stateUpdate }
+            onChange={ this.reviewUpdated }
           />
 
           <button
@@ -135,4 +121,5 @@ export default ReviewForms;
 ReviewForms.propTypes = {
   id: PropTypes.string,
   submitBtn: PropTypes.func,
+  ratingValues: PropTypes.arrayOf(PropTypes.number),
 }.isRequired;
