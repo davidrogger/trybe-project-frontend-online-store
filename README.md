@@ -1,10 +1,11 @@
 # Sobre
 
 ## Seção: `Metodologias Ágeis`
-- Nessa seção fui introduzido o manifesto ágil e funcionamento de [metodologias Ágeis](https://blog.betrybe.com/carreira/metodologias-ageis/), usando o método kanban e o framework [Scrum](https://blog.betrybe.com/carreira/metodologia-scrum/).
-- Apresentando como aplicações eram desenvolvidos antigamente([cascata](https://blog.betrybe.com/tecnologia/modelo-cascata/)), que somente no final da produção, era apresentando algo para o cliente, gerando um grande retrabalho devido a essa falta de comunicação. E isso fez necessária a criação de principios para melhor eficiencia e produtividade(existem vários outros fora o kanban e o scrum).
-- A importancia dos princípios apresentados nessa seção foram de facilitar e agilizar os processo e entregas da equipe, sem gerar complexidade desnecessários.
-- Para tornar isso possivel o desenvolvimento foi segmentando em pequenos ciclos(sprints) que variam de tempo de 2 semanas há 4 semanas.
+
+- Nessa seção fui introduzido o manifesto ágil e funcionamento de metodologias Ágeis, usando o método kanban e o framework Scrum.
+- Apresentando como aplicações eram desenvolvidos antigamente(cascata), que somente no final da produção, era apresentando algo para o cliente, gerando um grande retrabalho devido a essa falta de comunicação. E isso fez necessária a criação de princípios para melhor eficiência e produtividade(existem vários outros fora o kanban e o scrum).
+- A importância dos princípios apresentados nessa seção foram de facilitar e agilizar os processo e entregas da equipe, sem gerar complexidade desnecessários.
+- Para tornar isso possível, o desenvolvimento foi segmentando em pequenos ciclos(sprints) que variam de tempo de 2 semanas há 4 semanas.
 #
 <div align="center">
   <a href="https://davidrogger.github.io/trybe-project-frontend-online-store">
@@ -17,7 +18,7 @@
 >*clique na imagem para acesso online do projeto*
 #
 ## Projeto: `Frontend Store`
-- Desenolvemos uma aplicação simulando um ecommerce, usando API do Mercado Livre, onde é possível filtrar o conteudo de busca, por categoria ou por nome, visualizar detalhes do produto, adicionar comentários avaliativos, adicionar ao carrinho e  acessar o carrinho, acessando ele é possivel alterar a quantidade dos itens no carrinho.
+- Desensolvemos uma aplicação simulando um e-commerce, usando API do Mercado Livre, onde é possível filtrar o conteúdo de busca, por categoria ou por nome, visualizar detalhes do produto, adicionar comentários avaliativos, adicionar ao carrinho e acessar o carrinho, acessando ele é possível alterar a quantidade dos itens no carrinho conforme sua disponibilidade fornecido pela API.
 
 # Tecnologias e ferramentas usadas 🛠
 
@@ -26,13 +27,13 @@
 
 # Desafios
 
-- Focamos no trabalho em equipe e aplicar as lições apresentadas na seção usando o agil, usamos o kanban para deixar nítida as atividades que faziamos de forma separada, mas inicialmente avaliamos os primeiros requisitos necessários e focamos em aprender juntos o material que iriamos usar, alimentando nossa aplicação com a API, e usando o localstorage para manter os dados que precisavamos salvar.
-- Analisamos quem do grupo estava com mais dificuldade, e dividimos em grupos menores visando mais produtividade no desenvolvimento, vimos quem sentia mais confortavel desenvolvendo, para ajudar na evolução da pessoa com mais dificuldade.
-- Tecnicamente o maior problema que encontramos nesse projeto era de fornecer alguma informação entre os componentes, eramos limitados ao props drilling, passando o estado de um componente pai para um filho em forma de cascata, sendo algo bem confuso e com uma aparencia bagunçada, seções a frente aprendemos context api e redux, que resolvem esse problema.
+- Focamos no trabalho em equipe e aplicar as lições apresentadas na seção usando o ágil, usamos o kanban para deixar nítida as atividades que fazíamos de forma separada, inicialmente avaliamos os primeiros requisitos necessários e focamos em aprender junto o material que iriamos usar, alimentando nossa aplicação com a API, e usando o localstorage para manter dados que precisávamos salvar.
+- Analisamos cada membro do grupo, dividimos em grupos menores visando mais produtividade no desenvolvimento, vimos quem sentia mais confortável desenvolvendo, para ajudar na evolução da pessoa com mais dificuldade.
+- Tecnicamente o maior problema que encontramos nesse projeto era de fornecer alguma informação entre os componentes, eramos limitados ao props drilling, passando o estado de um componente pai para um filho em forma de cascata, sendo algo bem confuso e com uma aparência bagunçada.
 
 # Conclusão
 
-- Apesar de não ser a primeira atividade em grupo foi a primeira com bem mais que 1 intregante, foi muito bom nosso desenvolvimento os integrantes tinham a cabeça aberta para ideias, colaboratividade e transparentes com suas dificuldades. Foi um desenvolvimento leve, descontraido e amistoso.
+- Apesar de não ser a primeira atividade em grupo, foi a primeira com bem mais que 1 integrante, o pessoal tinha a cabeça aberta para ideias, colaboratividade e transparentes com suas dificuldades. Foi um desenvolvimento leve, descontraído e amistoso.
 
 </details>
 
@@ -73,7 +74,7 @@
   </summary>
 
   - [x] - ~~Criar aplicação com base nos requisitos da trybe.~~ ![data](https://badgen.net/badge/delivery/25-03-2022/green)
-  - [ ] - Revisar Estilo dos elementos da página. ![data](https://badgen.net/badge/progress/24-01-2023/orange)
+  - [x] - Revisar Estilo dos elementos da página. ![data](https://badgen.net/badge/delivery/27-01-2023/green)
   - [ ] - Desenvolver testes automatizados.
   - [ ] - Adaptar elementos da aplicação para mobile.
 
