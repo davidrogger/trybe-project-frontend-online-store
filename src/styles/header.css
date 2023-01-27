@@ -30,10 +30,11 @@
   height: 100%;
   margin-right: 15px;
   object-fit: contain;
+  opacity: 0.9;
   padding: 2px;
   width: 40px;
 }
 
 .header-nav img:hover {
-  background: bisque;
+  opacity: 1;
 }
