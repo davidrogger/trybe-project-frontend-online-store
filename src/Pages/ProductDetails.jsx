@@ -23,6 +23,8 @@ class ProductDetail extends Component {
       productDetail: {},
       productDetailLoading: true,
       productId: '',
+      // eslint-disable-next-line no-magic-numbers
+      ratingValues: [1, 2, 3, 4, 5],
     };
   }
 
@@ -55,7 +57,8 @@ class ProductDetail extends Component {
 
   render() {
     const { productDetail, productDetailLoading, productId,
-      reloadReviewDisplay } = this.state;
+      reloadReviewDisplay, ratingValues,
+    } = this.state;
     const { addToCart } = this.props;
 
     return productDetailLoading
@@ -68,10 +71,18 @@ class ProductDetail extends Component {
             />
           </div>
           <div className="review-container">
-            <ReviewForms id={ productId } reloadingReview={ this.reloadingReview } />
+            <ReviewForms
+              id={ productId }
+              reloadingReview={ this.reloadingReview }
+              ratingValues={ ratingValues }
+            />
             {!reloadReviewDisplay
               ? <p>Carregando</p>
-              : <DisplayReviews productId={ productId } />}
+              : (
+                <DisplayReviews
+                  productId={ productId }
+                  ratingValues={ ratingValues }
+                />)}
           </div>
         </>
       );

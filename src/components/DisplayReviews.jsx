@@ -35,14 +35,18 @@ class DisplayReviews extends Component {
 
   render() {
     const { reviewsList } = this.state;
-    const { productId } = this.props;
+    const { productId, ratingValues } = this.props;
 
     return (
       <div className="review-history-container">
         {reviewsList
           .filter((reviewInfo) => reviewInfo.productId === productId)
           .map((review, index) => (
-            <ReviewCard key={ index } review={ review } />
+            <ReviewCard
+              key={ index }
+              review={ review }
+              ratingValues={ ratingValues }
+            />
           ))}
       </div>
     );
@@ -51,6 +55,7 @@ class DisplayReviews extends Component {
 
 DisplayReviews.propTypes = {
   productId: PropTypes.string,
+  ratingValues: PropTypes.arrayOf(PropTypes.number),
 }.isRequirepd;
 
 export default DisplayReviews;

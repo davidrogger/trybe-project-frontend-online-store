@@ -5,13 +5,16 @@ import PropTypes from 'prop-types';
 // Serviços
 import { addReview } from '../services/localStorage';
 
+// Componentes
+import StarSelection from './StarSelection';
+
 class ReviewForms extends Component {
   constructor() {
     super();
     this.state = {
       reviews: {
         email: '',
-        productRating: '',
+        productRating: 0,
         review: '',
         productId: '',
       },
@@ -98,6 +101,8 @@ render() {
             onChange={ this.stateUpdate }
           />
         </label>
+
+        <StarSelection />
 
         {this.createRadioButton(['1', '2', '3', '4', '5'], reviews)}
 

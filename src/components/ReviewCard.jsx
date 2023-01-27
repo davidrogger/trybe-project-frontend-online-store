@@ -7,7 +7,7 @@ import StarFavorite from './StarFavorite';
 
 class ReviewCard extends Component {
   render() {
-    const { review: { email, productRating, review } } = this.props;
+    const { review: { email, productRating, review }, ratingValues } = this.props;
     return (
       <div className="product-review default-shadown-card">
         <div className="review-left-side">
@@ -17,6 +17,7 @@ class ReviewCard extends Component {
           <div className="rating-container">
             <StarFavorite
               rating={ productRating }
+              ratingValues={ ratingValues }
             />
           </div>
           <p>
@@ -33,7 +34,8 @@ ReviewCard.propTypes = {
     email: PropTypes.string,
     productRating: PropTypes.string,
     review: PropTypes.string,
-  }).isRequired,
-};
+  }),
+  ratingValues: PropTypes.arrayOf(PropTypes.number),
+}.isRequired;
 
 export default ReviewCard;

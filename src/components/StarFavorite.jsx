@@ -4,12 +4,10 @@ import PropTypes from 'prop-types';
 
 class StarFavorite extends Component {
   render() {
-    const { rating } = this.props;
-    // eslint-disable-next-line no-magic-numbers
-    const starRates = [1, 2, 3, 4, 5];
+    const { rating, ratingValues } = this.props;
     return (
       <div>
-        { starRates.map((star) => (
+        { ratingValues.map((star) => (
           <Star
             key={ star }
             weight={ star <= rating ? 'fill' : 'regular' }
@@ -21,6 +19,7 @@ class StarFavorite extends Component {
 
 StarFavorite.propTypes = {
   rating: PropTypes.number,
+  ratingValues: PropTypes.arrayOf(PropTypes.number),
 }.isRequired;
 
 export default StarFavorite;
