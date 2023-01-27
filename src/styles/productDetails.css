@@ -1,0 +1,132 @@
+.product-detail-container {
+  align-items: center;
+  background: var(--fifth-color);
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0;
+  width: 100%;
+}
+
+.product-detail-card {
+  background: var(--forth-color);
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 75vh;
+  padding-inline: 20px;
+  width: 90%;
+}
+
+.pictures-container, .info-container {
+  height: 100%;
+}
+
+.top-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.pictures-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-height: 500px;
+  width: 50%;
+}
+
+.main-picture {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  margin: 20px;
+  width: 100%;
+}
+
+.main-picture img {
+  height: 500px;
+  object-fit: contain;
+  width: 100%;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.info-container > * {
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.mini-pictures {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  padding: 5px;
+  width: 100px;
+}
+
+.mini-pictures img {
+  height: 70px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  width: 100%;
+}
+
+
+@media ( max-width : 800px ) {
+
+  .top-container {
+    flex-direction: column;
+  }
+
+  .pictures-container {
+    width: 100%;
+  }
+
+  .info-container {
+    width: 100%;
+  }
+}
+
+.product-detail-card, .mini-pictures, .mini-pictures img {
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06) , 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.mini-pictures img:hover {
+  border: 1px solid var(--secondary-color);
+}
+
+.product-description {
+  margin: 10px;
+}
+
+.info-container button {
+  align-self: center;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 10px;
+  color: var(--forth-color);
+  height: 50px;
+  margin-top: 50px;
+  opacity: 0.9;
+  width: 200px;
+}
+
+.product-description h3 {
+  margin: 20px 0;
+}
+
+.info-container button:hover {
+  opacity: 1;
+}
+
+.info-container button:active {
+  cursor: wait;
+  transform: translateY(1px);
+}

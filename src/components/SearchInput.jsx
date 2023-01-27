@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ProductCard from './ProductCard';
 
+// Estilos
+import '../styles/searchInput.css';
+
 class Search extends Component {
   render() {
     const { products, addToCart } = this.props;
@@ -26,7 +29,6 @@ class Search extends Component {
         ))}
       </ul>
     );
-    // console.log(addToCart);
     return (
 
       <div className="search-container">

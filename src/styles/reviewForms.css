@@ -1,0 +1,99 @@
+.review-container {
+  align-items: center;
+  background: var(--fifth-color);
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.review-history-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.product-review {
+  background: var(--forth-color);
+  display: flex;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 90%;
+}
+
+.review-left-side {
+  width: 30%;
+}
+
+.review-right-side {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  width: 70%;
+}
+
+.review-right-side > * {
+  align-self: flex-end;
+  margin-bottom: 10px;
+}
+
+.reviewcard-container {
+  border-top: 1px solid black;
+}
+
+.forms-review-container {
+  background: var(--forth-color);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  padding: 20px;
+  width: 90%;
+}
+
+.forms-review-container h3 {
+  margin: 10px;
+}
+
+.forms-review-container form > * {
+  margin-bottom: 20px;
+}
+
+.forms-review-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-review-msg textarea {
+  height: 80px;
+  margin-right: 10px;
+  resize: none;
+  width: 80%;
+}
+
+.form-review-msg button {
+  background: var(--primary-color);
+  border: none;
+  border-radius: 0 20px 20px 0;
+  color: var(--forth-color);
+  opacity: 0.9;
+  width: 20%;
+}
+
+.email-input {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.email-input input {
+  height: 40px;
+  margin-left: 10px;
+  padding-left: 10px;
+  width: 50%;
+}
+
+.form-review-msg {
+  display: flex;
+}

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getCategories } from '../services/api';
 
+// Estilos
+import '../styles/category.css';
+
 class Category extends Component {
   constructor() {
     super();
@@ -15,15 +18,19 @@ class Category extends Component {
   }
 
   render() {
-    const { handleCategoryClick } = this.props;
+    const { handleCategoryClick, categoryFilter } = this.props;
     const { categories } = this.state;
     return (
       <div className="category-container">
-        <span> Selecione uma categoria:</span>
+        <span>Categorias</span>
         <div className="category-options">
           {
             categories.map((category) => (
               <button
+                className={
+                  categoryFilter === category.id
+                    ? 'selected-category-btn' : 'default-category-btn'
+                }
                 type="button"
                 key={ category.id }
                 data-testid="category"

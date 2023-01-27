@@ -1,13 +1,100 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Home from './components/Home';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import SearchPage from './Pages/Search';
+import Header from './components/Header';
+import CartPage from './Pages/Cart';
+import ProductDetailsPage from './Pages/ProductDetails';
+import { addCartInStorage, readCartInStorage } from './services/localStorage';
+
+// Estilo
+import './styles/general.css';
+import Order from './Pages/Order';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      cartItems: [],
+      productCartQt: 0,
+    };
+  }
+
+  componentDidMount() {
+    this.setState({ cartItems: readCartInStorage() });
+    this.cartWeight();
+  }
+
+  cartWeight = () => {
+    const cartHistory = readCartInStorage();
+    const productCartQt = cartHistory
+      .map(({ productQt }) => productQt)
+      .reduce((total, quantity) => total + quantity, 0);
+    this.setState({ productCartQt });
+  }
+
+  cartCheck = (item) => {
+    const cartHistory = readCartInStorage();
+
+    const productIndex = cartHistory
+      .findIndex(({ productData }) => productData.id === item.id);
+    if (productIndex < 0) return [...cartHistory, { productData: item, productQt: 1 }];
+    const { productQt } = cartHistory[productIndex];
+    cartHistory[productIndex].productQt = productQt + 1;
+    return cartHistory;
+  }
+
+  addToCart = (item) => {
+    const product = this.cartCheck(item);
+    addCartInStorage(product);
+    this.setState({ cartItems: readCartInStorage() });
+    this.cartWeight();
+  }
+
   render() {
+    const { cartItems, productCartQt } = this.state;
     return (
-      <BrowserRouter>
-        <Route path="/" component={ Home } />
-      </BrowserRouter>
+      <Router basename="trybe-project-frontend-online-store">
+        <Header productCartQt={ productCartQt } />
+        <Switch>
+          <Route
+            exact
+            path="/productdetails/:id"
+            render={ (props) => (<ProductDetailsPage
+              { ...props }
+              addToCart={ this.addToCart }
+            />) }
+          />
+
+          <Route
+            exact
+            path="/order/:id"
+            render={ (props) => (<Order
+              { ...props }
+            />) }
+          />
+
+          <Route
+            exact
+            path="/cart"
+            render={ (props) => (<CartPage
+              { ...props }
+              cartItems={ cartItems }
+              cartWeight={ this.cartWeight }
+            />) }
+          />
+
+          <Route
+            exact
+            path="/"
+            render={ (props) => (<SearchPage
+              { ...props }
+              addToCart={ this.addToCart }
+            />) }
+          />
+
+        </Switch>
+      </Router>
     );
   }
 }

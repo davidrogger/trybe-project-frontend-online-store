@@ -1,5 +1,6 @@
 // Bibliotecas
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 // Serviços
 import { readProductReview } from '../services/localStorage';
@@ -34,14 +35,27 @@ class DisplayReviews extends Component {
 
   render() {
     const { reviewsList } = this.state;
+    const { productId, ratingValues } = this.props;
 
     return (
-      <div className="displayReview-container">
-        {reviewsList.map((review, index) => (
-          <ReviewCard key={ index } review={ review } />
-        ))}
+      <div className="review-history-container">
+        {reviewsList
+          .filter((reviewInfo) => reviewInfo.productId === productId)
+          .map((review, index) => (
+            <ReviewCard
+              key={ index }
+              review={ review }
+              ratingValues={ ratingValues }
+            />
+          ))}
       </div>
     );
   }
 }
+
+DisplayReviews.propTypes = {
+  productId: PropTypes.string,
+  ratingValues: PropTypes.arrayOf(PropTypes.number),
+}.isRequirepd;
+
 export default DisplayReviews;
