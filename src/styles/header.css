@@ -22,7 +22,7 @@
 .header-container a {
   height: 70%;
   object-fit: contain;
-  opacity: 80%;
+  opacity: 0.8;
 }
 
 .header-nav img {
