@@ -133,7 +133,6 @@ class Cart extends Component {
     if (operator === 'decrease') {
       cartItems[index].productQt = productQt - 1;
     }
-    console.log(cartItems);
     addCartInStorage(cartItems);
     this.setState({ cartItems });
     cartWeight();

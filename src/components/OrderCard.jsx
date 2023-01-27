@@ -9,7 +9,6 @@ import '../styles/orderCard.css';
 class OrderCard extends Component {
   render() {
     const { order } = this.props;
-    console.log(order);
     return (
       <div className="order-display default-shadown-card ">
         <h2>{`Nº Pedido: ${order.id}`}</h2>

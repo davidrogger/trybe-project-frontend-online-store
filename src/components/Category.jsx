@@ -37,7 +37,6 @@ class Category extends Component {
                 onClick={ () => handleCategoryClick(category.id) }
               >
                 {category.name}
-                {console.log(categoryFilter)}
               </button>
             ))
           }
