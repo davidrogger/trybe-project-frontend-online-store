@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/trybe-project-frontend-online-store/static/css/main.d7431d3d.chunk.css",
+    "main.js": "/trybe-project-frontend-online-store/static/js/main.40c43c6c.chunk.js",
+    "main.js.map": "/trybe-project-frontend-online-store/static/js/main.40c43c6c.chunk.js.map",
+    "runtime-main.js": "/trybe-project-frontend-online-store/static/js/runtime-main.23ec2c28.js",
+    "runtime-main.js.map": "/trybe-project-frontend-online-store/static/js/runtime-main.23ec2c28.js.map",
+    "static/js/2.bfa957e6.chunk.js": "/trybe-project-frontend-online-store/static/js/2.bfa957e6.chunk.js",
+    "static/js/2.bfa957e6.chunk.js.map": "/trybe-project-frontend-online-store/static/js/2.bfa957e6.chunk.js.map",
+    "index.html": "/trybe-project-frontend-online-store/index.html",
+    "precache-manifest.e800e7d085a6cfc5b371d62da62d8cdc.js": "/trybe-project-frontend-online-store/precache-manifest.e800e7d085a6cfc5b371d62da62d8cdc.js",
+    "service-worker.js": "/trybe-project-frontend-online-store/service-worker.js",
+    "static/css/main.d7431d3d.chunk.css.map": "/trybe-project-frontend-online-store/static/css/main.d7431d3d.chunk.css.map",
+    "static/js/2.bfa957e6.chunk.js.LICENSE.txt": "/trybe-project-frontend-online-store/static/js/2.bfa957e6.chunk.js.LICENSE.txt",
+    "static/media/carshop2.png": "/trybe-project-frontend-online-store/static/media/carshop2.a24a6cd0.png",
+    "static/media/search2.png": "/trybe-project-frontend-online-store/static/media/search2.4bab11ab.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.23ec2c28.js",
+    "static/js/2.bfa957e6.chunk.js",
+    "static/css/main.d7431d3d.chunk.css",
+    "static/js/main.40c43c6c.chunk.js"
+  ]
+}
