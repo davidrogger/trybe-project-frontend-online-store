@@ -52,6 +52,7 @@
 
 .search-container p {
   color: var(--primary-color);
+  text-align: center;
 }
 
 .search-container ul {
