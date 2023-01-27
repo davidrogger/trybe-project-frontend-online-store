@@ -12,7 +12,7 @@ class OrderCard extends Component {
     console.log(order);
     return (
       <div className="order-display default-shadown-card ">
-        <h2>{order.id}</h2>
+        <h2>{`Nº Pedido: ${order.id}`}</h2>
         <ol>
           {order.products.map(({ productData, productQt }) => (
             <ProductCartItems

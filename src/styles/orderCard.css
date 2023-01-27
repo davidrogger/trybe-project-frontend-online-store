@@ -18,3 +18,8 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.order-display h2 {
+  align-self: center;
+  margin: 15px;
+}
