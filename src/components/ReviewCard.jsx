@@ -2,6 +2,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+// Componentes
+import StarFavorite from './StarFavorite';
+
 class ReviewCard extends Component {
   render() {
     const { review: { email, productRating, review } } = this.props;
@@ -12,7 +15,9 @@ class ReviewCard extends Component {
         </div>
         <div className="review-right-side">
           <div className="rating-container">
-            {productRating}
+            <StarFavorite
+              rating={ productRating }
+            />
           </div>
           <p>
             {review}
