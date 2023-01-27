@@ -44,8 +44,8 @@ class Cart extends Component {
   }
 
   cartItensList = (items) => (
-    <div className="cartList-container">
-      <ol className="">
+    <div className="checkout-resume-container">
+      <ol className="product-cart-list">
         {items.map(({ productData, productQt }, index) => (
           <ProductCartItems
             key={ productData.id }
